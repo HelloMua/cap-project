@@ -6,9 +6,12 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "sap/ui/model/Sorter",
     "sap/m/MessageBox",
-    "sap/m/MessageToast"
-], function (Controller, Filter, FilterOperator, JSONModel, Fragment, Sorter, MessageBox, MessageToast) {
-	"use strict";
+    "sap/m/MessageToast",
+    "sap/ui/export/Spreadsheet",
+    "sap/ui/export/library"
+], function (Controller, Filter, FilterOperator, JSONModel, Fragment, Sorter, MessageBox, MessageToast, Spreadsheet, exportLibrary) {
+    "use strict";
+    const EdmType = exportLibrary.EdmType;
 
 	return Controller.extend("gilro.controller.capex1.BoardMain", {
 
@@ -119,6 +122,84 @@ sap.ui.define([
                 this.getView().setModel(oBooksModel, "BooksSelect");
             })
 
+        },
+
+        // Input 초기화 버튼 클릭 시 실행
+        onReset: function () {
+            this.getView().byId("id").setValue("");
+            this.getView().byId("author").setValue("");
+            this.getView().byId("title").setValue("");
+        },
+
+        // Excel 파일 생성
+        onDataExport: function () {
+            // console.log(this.byId("Table").getBinding("items"));
+            if (this.byId("table").getBinding("items") === undefined) {
+                MessageBox.alert("리스트를 먼저 조회해주세요.");
+                return;
+            }
+
+            let aCols, oRowBinding, oSettings, oSheet, oTable;
+    
+            if (!this._oTable) {
+                this._oTable = this.byId("table");
+            }
+
+            oTable = this._oTable;
+            oRowBinding = oTable.getBinding("items");
+            aCols = this.createColumnConfig();
+
+            oSettings = {
+                workbook: {
+                    columns: aCols,
+                    hierarchyLevel: 'Level'
+                },
+                dataSource: oRowBinding,
+                fileName: 'BooksList.xlsx',
+                worker: false
+            };
+
+            oSheet = new Spreadsheet(oSettings);
+            oSheet.build().finally(function() {
+                oSheet.destroy();
+            });
+        },
+        
+        createColumnConfig: function() {
+            const aCols = [];
+
+            aCols.push({
+                property: 'ID',
+                type: EdmType.String
+            });
+
+            aCols.push({
+                property: 'name',
+                type: EdmType.String
+            });
+
+            return aCols;
+        },
+
+        onFilter: function () {
+
+        },
+
+        // 라디오 버튼 클릭 시 실행
+        onChaneSelect: function (oEvent) {
+            this.oText = oEvent.getParameters().listItem.getAggregation("cells")[1].getProperty("text");
+            console.log(this.oText);
+        },
+
+        // Dialog의 선택 버튼 클릭 시, 추출한 값을 Input Box에 넣고 창 닫기
+        onSelectAuthors: function () {
+            this.getView().byId("author").setValue(this.oText);
+            this.getView().byId("AuthorsFrag").close();
+        },
+
+        // Dialog의 취소 버튼 클릭 시 창 닫기
+        onCloseAuthorsFrag: function () {
+            this.getView().byId("AuthorsFrag").close();
         }
 	});
 });
