@@ -1,20 +1,24 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/richtexteditor/RichTextEditor"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller) {
+	function (Controller, RichTextEditor) {
 		"use strict";
 
 		return Controller.extend("gilro.controller.capex1.BoardDetail", {
 			onInit: function () {
-                //페이지 갱신될 때 실행되는 함수 호출
+                // 페이지 갱신될 때 실행되는 함수 호출
                 let Detail = this.getOwnerComponent().getRouter().getRoute("BoardDetail");
                 let fullDetail = this.getOwnerComponent().getRouter().getRoute("BoardDetailFull");
 
                 Detail.attachPatternMatched(this.onMyRoutePatternMatched, this);
                 fullDetail.attachPatternMatched(this.onMyRoutePatternMatched2, this);
+
+                // Rich Text Editor을 VerticalLayout에 추가하기 
+                this.getView().byId("editor").addContent(this.oEditor.oRichTextEditor);
 
             },
 
@@ -43,6 +47,24 @@ sap.ui.define([
             // 돌아가기
             onBack: function () {
                 this.getOwnerComponent().getRouter().navTo("BoardMain");
+            },
+
+            // Rich Text Editor 
+            oEditor: {
+                oRichTextEditor: new RichTextEditor("myRTE", {
+                    editorType: sap.ui.richtexteditor.EditorType.TinyMCE4,
+                    width: "100%",
+                    height: "600px",
+                    customToolbar: true,
+                    showGroupFont: true,
+                    showGroupLink: true,
+                    showGroupInsert: true,
+                    value: "",
+                    editable: false,
+                    ready: function () {
+                        this.addButtonGroup("styleselect").addButtonGroup("table");
+                    }
+                })
             }
 		});
 	});

@@ -4,6 +4,7 @@ entity Books {
   key ID : String;
   title  : localized String;
   author : Association to Authors;
+  name : String; 
   stock  : String;
   ploat : String(500);
 }

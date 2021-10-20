@@ -63,14 +63,7 @@
                 <subSections>
 					<ObjectPageSubSection id="section1_SS3" titleUppercase="false">
                         <form:SimpleForm>
-                            <m:VBox>
-                                <m:Label text="author_ID :" />
-                                <m:Text text="{}" />
-                            </m:VBox>
-                            <m:VBox>
-                                <m:Label text="author_name :" />
-                                <m:Text text="{}" />
-                            </m:VBox>
+                            <layout:VerticalLayout id="editor" class="sapUiContentPadding" width="100%"></layout:VerticalLayout>
                         </form:SimpleForm>
                     </ObjectPageSubSection>
 				</subSections>
