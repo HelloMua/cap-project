@@ -23,7 +23,24 @@ sap.ui.define([
             var oViewModel = new JSONModel([]);
             this.getView().setModel(oViewModel, "products");
 
-            this._getBooksSelect();            
+            // Books Entity의 데이터를 가져와서 JSON Model을 생성하고 담는다
+            this._getBooksSelect();     
+            
+            // 테이블의 개수를 담는 모델 생성
+            const oCountModel = new JSONModel({count: 0});
+            this.getView().setModel(oCountModel, "co");
+
+            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
+            let oBinding = this.byId("table").getBinding("items");
+            // let aIndices = this.getView().byId("table").getSelectedIndices();
+            // console.log(aIndices);
+
+            if (oBinding != undefined && oBinding.aIndices != undefined) {
+                this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+            }
+            // console.log(oBinding);
+
+            
       
         },
 
@@ -71,9 +88,10 @@ sap.ui.define([
         // Authors 데이터 가져오기 
         _getAuthorsSelect : function () {
             let AuthorsPath = "/catalog/Authors"
+
             this._getData(AuthorsPath).then((oData) => {
                 var oAuthorsModel = new JSONModel(oData.value)
-                console.log(oAuthorsModel);
+                // console.log(oAuthorsModel);
                 this.getView().setModel(oAuthorsModel, "AuthorsSelect");
             })
         },
@@ -116,11 +134,29 @@ sap.ui.define([
         // Books 데이터 가져오기
         _getBooksSelect: function () {
             let BooksPath = "/catalog/Books"
+
             this._getData(BooksPath).then((oData) => {
                 var oBooksModel = new JSONModel(oData.value)
                 console.log(oBooksModel);
                 this.getView().setModel(oBooksModel, "BooksSelect");
             })
+
+            // let count = this.getView().getModel("BooksSelect").getProperty("/").length;
+            // let booksList = "List" + " (" + count + ")";
+
+            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
+            // let oBinding = this.byId("table").getBinding("items");
+            // let aIndices = this.getView().byId("table").getSelectedIndices();
+            // console.log(aIndices);
+
+            // if (oBinding != undefined && oBinding.aIndices != undefined) {
+            //     this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+            // }
+            // this.getView().getModel("BooksSelect").refresh(true);
+            // this.getView().getModel("co").refresh(true);
+            // console.log(oBinding);
+            // this.getView().byId("tableHeader").mProperties["text"] = null;  //text 비워주기 (안 쓰면 안 됨)
+            // this.byId("tableHeader").setText(booksList);
 
         },
 
@@ -181,10 +217,6 @@ sap.ui.define([
             return aCols;
         },
 
-        onFilter: function () {
-
-        },
-
         // 라디오 버튼 클릭 시 실행
         onChaneSelect: function (oEvent) {
             this.oText = oEvent.getParameters().listItem.getAggregation("cells")[1].getProperty("text");
@@ -200,6 +232,53 @@ sap.ui.define([
         // Dialog의 취소 버튼 클릭 시 창 닫기
         onCloseAuthorsFrag: function () {
             this.getView().byId("AuthorsFrag").close();
+        },
+
+        // 필터링(정렬)
+        onFilter: function () {
+            this.onBooksOpenSettings();
+        },
+
+        onBooksOpenSettings: function () {
+            const sDialogTab = "filter";
+
+            if (!this.byId("filter")) {
+                Fragment.load({
+                    id: this.getView().getId(),
+                    name: "gilro.view.fragment.Filter",
+                    controller: this
+                }).then(function (oDialog) {
+                    this.getView().addDependent(oDialog);
+                    oDialog.open(sDialogTab);
+                }.bind(this));
+            } else {
+                this.byId("filter").open(sDialogTab);
+            }
+        },
+
+        // ????
+        resetGroupDialog: function () {
+            this.groupReset = true;
+        },
+
+        // Filter Dialog의 확인 버튼 클릭 시 실행
+        onConfirmOrderDialog: function (oEvent) {
+            let mParams = oEvent.getParameters();       // 해당 이벤트가 발생한 시점의 정보 (filter, group, sort의 정보를 모두 가지고 있음)
+            let oBinding = this.byId("table").getBinding("items");      // table의 items 컬럼들값 (테이블의 행 정보) 
+
+            // 정렬화
+            let sPath = mParams.sortItem.getKey();      // fragment.xml에서 지정한 sortItems의 key값
+            let bDescending = mParams.sortDescending;   // default value=> false
+
+            let aSorters = [];
+            aSorters.push(new Sorter(sPath, bDescending));      // sortItems의 key값들을 오름차순으로 정렬할 배열 
+            oBinding.sort(aSorters);        // 행을 정렬할 때 aSorters 배열을 가져와서 담음
+
+            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
+            if (oBinding != undefined && oBinding.aIndices != undefined) {
+                // 행의 갯수를 담는 로직
+                this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+            }
         }
 	});
 });

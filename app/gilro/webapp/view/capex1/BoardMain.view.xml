@@ -78,7 +78,7 @@
                 }">
                 <headerToolbar>
                     <OverflowToolbar>
-                        <Title text="List (0)" level="H2" />
+                        <Title id="tableHeader" text="List ({co>/count})" level="H2" />
                         <ToolbarSpacer />
                         <Button text="Add" press=".addRow"/>
                         <Button icon="sap-icon://excel-attachment" press=".onDataExport">
