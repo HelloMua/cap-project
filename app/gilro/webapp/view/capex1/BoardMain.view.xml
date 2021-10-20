@@ -9,9 +9,129 @@
     height="100%">
 
     <f:DynamicPage id="page"
-        headerExpanded="true" 
+        headerExpanded="true"
         toggleHeaderOnTitleClick="true">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <HBox>
+                        <OverflowToolbarButton id="pageNavBackButton" type="Transparent" icon="sap-icon://nav-back" press=".onBack" />
+                        <Title text="목록" class="sapUiTinyMarginTop" />
+                    </HBox>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
 
-     
+        <f:header>
+            <f:DynamicPageHeader pinnable="false">
+                <!-- <layout:HorizontalLayout>
+                    <layout:VerticalLayout class="sapUiMediumMargin">
+                        <ObjectAttribute title="ID" />
+                        <Input />
+                    </layout:VerticalLayout>
+                    <layout:VerticalLayout class="sapUiMediumMargin">
+                        <ObjectAttribute title="Author" />
+                        <Input />
+                    </layout:VerticalLayout>
+                    <layout:VerticalLayout class="sapUiMediumMargin">
+                        <ObjectAttribute title="Title" />
+                        <Input />
+                    </layout:VerticalLayout>
+                </layout:HorizontalLayout>
+
+                <layout:HorizontalLayout>
+                    <Button text="검색" type="Emphasized" press=".onSearch" />
+                    <Button text="초기화" type="Transparent" press=".onReset" class="sapUiTinyMarginBegin" />
+                </layout:HorizontalLayout> -->
+
+                <form:SimpleForm maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false">
+                    <form:content>
+                        <VBox width="auto">
+                            <Label text="ID : " labelFor="P_number" ></Label>     
+                            <Input id="P_id" width="95%"/>
+                        </VBox>
+                        <VBox width="auto">
+                            <Label text="Author : " ></Label>
+                            <Input id="authorValueHelp" valueHelpOnly="true" showValueHelp="true" valueHelpRequest=".handleTableSelectDialogPress"/>
+                        </VBox>
+                        <VBox width="auto">
+                            <Label text="Title : " labelFor="P_company"></Label>
+                            <Input id="P_title" />
+                        </VBox>
+                        <HBox justifyContent="End">
+                            <Button text="검색" type="Emphasized" press="onSearch"/>
+                            <Button text="초기화" type="Transparent" press="onPressReset" class="sapUiTinyMarginBegin"/>
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" />
+                            </layoutData>           
+                        </HBox>         
+                    </form:content>
+                </form:SimpleForm>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <Table 
+                id="table" 
+                items="{
+                    path: 'products>/'
+                }">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="List ({co>/count})" level="H2" />
+                        <ToolbarSpacer />
+                        <Button text="Add" press=".addRow"/>
+                        <Button icon="sap-icon://excel-attachment" press=".onDataExport">
+                            <layoutData>
+                                <OverflowToolbarLayoutData proirity="NeverOverflow" />
+                            </layoutData>
+                        </Button>
+                        <Button icon="sap-icon://filter" press=".onFilter">
+                            <layoutData>
+                                <OverflowToolbarLayoutData proirity="NeverOverflow" />
+                            </layoutData>
+                        </Button>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="author" />
+                    </Column>
+                    <Column>
+                        <Text text="author_ID" />
+                    </Column>
+                    <Column>
+                        <Text text="stock" />
+                    </Column>
+                    <Column>
+                        <Text text="title" />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem type="Navigation" press=".onRoutePage">
+                        <cells>
+                            <!-- <Text text="{}" />
+                            <Text text="{}" />
+                            <Text text="{}" />
+                            <Text text="{}" />
+                            <Text text="{}" /> -->
+                            <Text text="d" />
+                            <Text text="d" />
+                            <Text text="d" />
+                            <Text text="d" />
+                            <Text text="d" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+
+        <f:footer>
+        </f:footer>
     </f:DynamicPage>
 </mvc:View>

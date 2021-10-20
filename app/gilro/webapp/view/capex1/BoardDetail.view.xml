@@ -1,0 +1,80 @@
+<mvc:View
+    controllerName="gilro.controller.capex1.BoardDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    displayBlock="true">
+    <ObjectPageLayout>
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <heading>
+                    <m:Title text="도서번호: {}" wrapping="true" />
+                </heading>
+            </ObjectPageDynamicHeaderTitle>
+
+            <navigationActions>
+                <m:OverflowToolbarButton id="fullScreen" icon="sap-icon://full-screen" press=".onFull" tooltip="스크린 확장" />
+                <m:OverflowToolbarButton id="exitScreen" icon="sap-icon://exit-full-screen" press=".onExitFull" tooltip="스크린 축소" />
+                <m:OverflowToolbarButton icon="sap-icon://declinen" press=".onBack" tooltip="돌아가기" />
+            </navigationActions>
+        </headerTitle>
+
+        <headerContent>
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection id="section1" title="책 정보">
+                <subSections>
+					<ObjectPageSubSection id="section1_SS1" titleUppercase="false">
+                        <form:SimpleForm>
+                            <m:VBox>
+                                <m:Label text="title :" />
+                                <m:Text text="{}" />
+                            </m:VBox>
+                            <m:VBox>
+                                <m:Label text="stock :" />
+                                <m:Text text="{}" />
+                            </m:VBox>
+                        </form:SimpleForm>
+                    </ObjectPageSubSection>
+				</subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection id="section2" title="저자 정보">
+                <subSections>
+					<ObjectPageSubSection id="section1_SS2" titleUppercase="false">
+                        <form:SimpleForm>
+                            <m:VBox>
+                                <m:Label text="author_ID :" />
+                                <m:Text text="{}" />
+                            </m:VBox>
+                            <m:VBox>
+                                <m:Label text="author_name :" />
+                                <m:Text text="{}" />
+                            </m:VBox>
+                        </form:SimpleForm>
+                    </ObjectPageSubSection>
+				</subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection id="section3" title="줄거리">
+                <subSections>
+					<ObjectPageSubSection id="section1_SS3" titleUppercase="false">
+                        <form:SimpleForm>
+                            <m:VBox>
+                                <m:Label text="author_ID :" />
+                                <m:Text text="{}" />
+                            </m:VBox>
+                            <m:VBox>
+                                <m:Label text="author_name :" />
+                                <m:Text text="{}" />
+                            </m:VBox>
+                        </form:SimpleForm>
+                    </ObjectPageSubSection>
+				</subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

@@ -246,12 +246,30 @@
           "target": "home",
           "layout": "OneColumn"
         },
-      {
-        "pattern": "capex1/BoardMain",
-        "name": "BoardMain",
-        "target": "BoardMain",
-        "layout": "OneColumn"
-      }
+        {
+            "pattern": "capex1/BoardMain",
+            "name": "BoardMain",
+            "target": "BoardMain",
+            "layout": "OneColumn"
+        },
+        {
+            "pattern": "capex1/BoardDetail/{num}",
+            "name": "BoardDetail",
+            "target": [
+                "BoardMain",
+                "BoardDetail"
+            ],
+            "layout": "TwoColumnsMidExpanded"
+        },
+        {
+          "pattern": "capex1/BoardDetailFull/{num}",
+          "name": "BoardDetailFull",
+          "target": [
+            "BoardMain",
+            "BoardDetail"
+          ],
+          "layout": "MidColumnFullScreen"
+        }
       ],
 
 
@@ -266,6 +284,12 @@
           "viewPath": "gilro.view.capex1",
           "viewName": "BoardMain",
           "controlAggregation": "beginColumnPages"
+        },
+        "BoardDetail": {
+            "viewId": "BoardDetail",
+            "viewPath": "gilro.view.capex1",
+            "viewName": "BoardDetail",
+            "controlAggregation": "midColumnPages"
         }
       }
 

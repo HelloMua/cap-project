@@ -1,0 +1,59 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="AuthorsFrag"
+        title="저자 선택"
+        contentHeight="30rem"
+        contentWidth="40rem">
+        <content>
+            <SearchField id="AuthorsSearch" class="sapUiTinyMarginBeginEnd" placeholder="검색" search=".onSearchAuthors" width="95%" />
+            <Table
+                id="AuthorsSelectTable"
+                mode="SingleSelectLeft"
+                selectionChange="onChaneSelect"
+                noDataText=" " 
+                items="{
+                    path : 'AuthorsSelect>/'
+                }">
+                <headerToolbar>
+                    <OverflowToolbar>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column width="auto">
+                        <header>
+                            <Text text="ID" />   
+                        </header>
+                    </Column>
+                    <Column width="auto">
+                        <header>
+                            <Text text="name" />   
+                        </header>
+                    </Column>
+                </columns>
+
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{AuthorsSelect>ID}" />    
+                        <Text text="{AuthorsSelect>name}" />                    
+                    </cells>
+                </ColumnListItem>
+            </Table>
+        </content>
+
+        <beginButton>
+            <Button
+                text="선택"
+                type="Emphasized"
+                press="onSelectAuthors"/>
+        </beginButton>
+        <endButton>
+            <Button
+                text="취소"
+                press=".onCloseAuthorsFrag"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
