@@ -1,0 +1,42 @@
+#sideNavigation123{
+	background:#ffffff;
+}
+.testtt{
+	background:#000000;
+	height:300px;
+	position:relative;
+	bottom:300px;
+	left: 50px;
+}
+.hr2side  {
+	height:530px;
+}
+.hr2im{
+	width:87.1%;
+	height:40px;
+	background:#3F5161;
+	text-align:center;
+}
+.hr2im .sapMText{
+	color:#ffffff;
+	position:relative;
+	top:15px;
+}
+.hr2imb{
+	position:relative;
+	bottom:20px;
+	left:90px;
+	height:35px;
+	border:none;
+}
+.hr2imb .sapMBtn{
+	border:none;
+}
+.hr2imb .sapMBtnInner{
+	background:#3F5161;
+	height:35px;
+}
+.hr2imb .sapMBtnInner .sapMBtnIcon.sapMImg{
+	width:35px;
+	height:30px;
+}

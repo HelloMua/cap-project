@@ -1,0 +1,43 @@
+.upload__collection {
+    width: auto;
+}
+.upload__collection .sapMUCTextContainer {
+    display: 100%;
+    padding: 0;
+}
+.upload__collection .sapMUCFileName.sapMLnk {
+    padding-right: 5px;
+}
+
+li[id*='uploadCollection-list-nodata'] span {
+    display: none;
+}
+
+li[id*='uploadCollection-list-nodata'] div[id*='UploadCollection-no-data-description'] {
+    display: none;
+}
+
+div[id*='uploadCollection-numberOfAttachmentsTitle'] {
+    display: inline;
+}
+
+div[id*='uploadCollection-no-data-text'] {
+   visibility: hidden;
+   position: relative;
+}
+div[id*=id="container-GILRO---appView--appView-midColumn"] {
+    display: inherit;
+}
+div[id*='uploadCollection-no-data-text']:after {
+   visibility: visible;
+   position: absolute;
+   margin: auto 0;
+}
+.sapMLIB.sapMUCItem.sapMUCListSingleItem, .sapMLIB.sapMUCItem.sapMUCListFirstItem, .sapMLIB.sapMUCItem.sapMUCListLastItem, .sapMLIB.sapMUCItem.sapMUCListItem {
+    padding: 0;
+    padding-bottom: 10px;
+    
+}
+.richText {
+    margin: 0 auto;
+}

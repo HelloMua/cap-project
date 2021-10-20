@@ -1,0 +1,89 @@
+.swhee{
+	width:70px;
+	position:relative;
+	top:10px;
+	left:5px;
+}
+.swhee1{
+	position:relative;
+	left:77px;
+	bottom:50px;
+	font-weight:bold;
+}
+.swhee2{
+	position:relative;
+	left:77px;
+	bottom:50px;
+}
+.swhee3{
+	height:100px;
+}
+.swheee{
+	height:80px;
+	width:100px;
+	position:relative;
+	top:10px;
+	left:5px;
+}
+.swheee1{
+	position:relative;
+	left:107px;
+	bottom:50px;
+	font-weight:bold;
+}
+.swheee2{
+	position:relative;
+	left:107px;
+	bottom:50px;
+}
+
+.hSWside{
+	width:244px;
+	height:800px;
+	background:#F5F5F5;
+}
+.hSWside1{
+
+	font-weight:bolder;
+	
+	margin : 10px 0px 0px 0px;
+}
+.SWtitle{
+	font-size:25px;
+	position:relative;
+	left:20px;
+	
+}
+.SWtitlei{
+	position:relative;
+	left:14px;
+	top:5px;
+	width:170px;
+}
+.hSWside2 .sapMBtn
+{
+	width:200px;
+	position:relative;
+	left:20px;
+}
+.hSWside2 .sapTntNavLI.sapTntNavLINoIcons:not(.sapTntNavLIPopup) .sapTntNavLIGroup{
+	background:#F5F5F5;
+	
+}
+
+.hSWside2 .sapContrast .sapTntNavLIItem .sapMText{
+	color:#646464;
+}
+.hSWside2 .sapContrast .sapTntNavLIGroupItem.sapTntNavLIItem{
+	background:#f5f5f5;
+}
+.swtemp{
+	background:#000000;
+}
+.hSWsidenavi {
+	border:none !important;
+}
+.hswrside{
+	margin-top:40px;
+	border-bottom :1px solid #646464;
+}

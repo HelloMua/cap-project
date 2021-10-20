@@ -1,0 +1,15 @@
+.Procurementmove{
+	position:relative;
+	bottom:74px;
+	left:150px;
+}
+.Procurementmove .sapMBtnInner{
+	color:#ffffff;
+	font-size:1.2rem;
+	border:none;
+}
+.Procurementmove1 {
+	position:relative !important;
+	bottom:120px !important;
+	left:280px !important;
+}

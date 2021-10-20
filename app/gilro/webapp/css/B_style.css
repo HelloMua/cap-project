@@ -1,0 +1,121 @@
+/* Enter your custom styles here */
+.dschat{
+	width:324px;
+	background:#286eb4;
+	position:relative;
+	bottom:62px;
+	text-align:center;
+	opacity : 0.7;
+	height:60px;
+}
+.dschat .sapMText{
+	color:#ffffff;
+	height:20px;
+}
+.dsbot1{
+	position:relative;
+	top:5px;
+	right:90px;
+}
+.dsbot2{
+	position:relative;
+	bottom:18px;
+	left:3px;
+}
+.dsbot3{
+	position:relative;
+	bottom:13px;
+	right:90px;
+}
+.dsbot4{
+	position:relative;
+	bottom:38px;
+	left:11px;
+}
+.bold{
+	font-weight:bold;	
+}
+.DSicon1{
+	width:30px;
+	position:relative;
+	left:8px;
+	top:20px;
+}
+.DStext1{
+	position: relative;
+    bottom: 15px;
+    left: 45px;
+    font-weight:bold;
+}
+.DStext2{
+	position: relative;
+    bottom: 18px;
+    left: 45px;
+}
+.DSsided12{
+	background:#E6E6E6;
+}
+.Bup1{
+	background-color: #354a5f;
+	color:#ffffff;
+}
+
+.textWhite{
+	color:#ffffff;
+	position:relative;
+	left:10px;
+}
+
+.gridTitle1{
+	background-color: #286eb4;
+	color:#ffffff;
+
+}
+
+.gridTitle2{
+	background-color: #6a6d70;
+	color:#ffffff;
+}
+.hcalendar{
+	text-align:center;
+
+}
+.dssap{
+	position:relative;
+	top:13px;
+	left:10px;
+}
+.dsoracle{
+	position:relative;
+	top:30px;
+	left:3px;
+}
+.dspeoplesoft{
+	position:relative;
+	top:15px;
+}
+.dsrssfeed{
+	position:relative;
+	top:21px;
+}
+.v-m-background{
+	width:10rem;
+}
+.sapUiCal:not(.sapUiCalInt) {
+    width: 10rem !important;
+    min-width: 14rem;
+    position:relative;
+	left:3px;
+	bottom:19px;
+}
+
+.hDSimage{
+	width:13rem;
+	height:170px;
+}
+.DSicon{
+	width:27px;
+	position:relative;
+	left:5px;
+	top:0px;
+}

@@ -1,0 +1,76 @@
+.aPtest{
+	border:1px solid #000000;
+}
+.aPnomargin{
+	margin-left:-15px !important;
+	margin-right:-15px !important;
+	margin-bottom:-10px !important;
+	width:1610px;
+}
+.aPcontentT{
+	background:#515151;
+}
+.aPcontentT .sapMText{
+	color:#ffffff;
+	position:relative;
+	top:12px;
+	left:15px;
+}
+.agree10{
+	width: 600px;
+	position:relative;
+	left :100px;
+	text-align:center;
+	border:1px solid #686868;
+}
+.apgyr{
+	position:relative;
+	left:90px;
+	top:30px;
+}
+.aPcborder{
+	border:1px solid #686868;
+}
+.aPcborder1{
+	border-bottom:1px solid #686868;
+	text-align:center;
+	width:170px;
+}
+.aPcolposition{
+	margin:0px 5px 0px 5px;
+	position:relative;
+	top:15px;
+}
+.aPtitle{
+	background:#496B8A;
+	position:relative;
+	bottom:13px;
+	right:15px;
+	height:30px;
+	width:200px;
+}
+.aPtitle .sapMText{
+	position:relative;
+	top:7px;
+	left:10px;
+	color:#ffffff;
+}
+.aPborder{
+	border:0.5px solid #496b8a;
+}
+.aPmo{
+	border:0.5px solid #496b8a;
+}
+.aPtodo{
+	position:relative;
+	right:50px;
+	top: 13px;
+}
+.aPtodolink{
+	position:relative;
+	left: 30px;
+}
+.aPtodochart{
+	position:relative;
+	right:70px;
+}

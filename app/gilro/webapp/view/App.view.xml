@@ -1,0 +1,141 @@
+<mvc:View controllerName="gilro.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:f="sap.f">
+    <tnt:ToolPage id="toolPage">
+        <tnt:header>
+            <tnt:ToolHeader>
+                <Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress"></Button>
+                <MenuButton id="site1" visible="false" text="개발참고 사이트" buttonMode="Regular" defaultAction="onNavTotaskmanage" useDefaultActionOnly="true">
+                    <menu>
+                        <Menu itemSelected=".onItemSelectLink">
+                            <MenuItem text="BTP COCKPIT" press="devInfoLink" key="btp" startsSection="true" />
+                            <MenuItem text="SAPUI5 SDK" press="devInfoLink" key="ui5" startsSection="true" />
+                            <MenuItem text="ICON EXPLORER" press="onPress" key="icon" startsSection="true" />
+                            <MenuItem text="UI TOOLING" press="onPress" key="ui tooling" startsSection="true" />
+                            <MenuItem text="GIT" press="onPress" key="git" startsSection="true" />
+                            <MenuItem text="CAP" press="onPress" key="cap" startsSection="true" />
+                            <MenuItem text="JAVASCRIPT" press="onPress" key="js" startsSection="true" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                
+                <MenuButton id="site2" visible="false" text="제이링크 업무" buttonMode="Split" defaultAction="onNavTotaskmanage" useDefaultActionOnly="true">
+                    <menu>
+                        <Menu itemSelected=".onItemSelectLink">
+                            <MenuItem text="NOTION" press="onPress" key="notion" startsSection="true" />
+                            <MenuItem text="GITHUB" press="devInfoLink" key="github" startsSection="true" />
+                            <MenuItem text="JELINK MAIL" press="devInfoLink" key="mailing" startsSection="true" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                
+                <MenuButton enabled="true" text="업무 관리" buttonMode="Split" defaultAction="onNavTotaskmanage" useDefaultActionOnly="true">
+                    <menu>
+                        <Menu itemSelected=".onItemSelect">
+                            <MenuItem text=" 구매 관리" press="onPress" enabled="true" key="purchasemanage" startsSection="true" />
+                            <MenuItem text=" 수출/입 관리" press="onPress" enabled="true" key="ro" startsSection="true" />
+                            <MenuItem text="자재 관리 " press="onPress" enabled="true" key="materialmanage" startsSection="true" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                <MenuButton text="협업 관리" buttonMode="Split" useDefaultActionOnly="true" defaultAction="onNavToColl">
+                    <menu>
+                        <Menu itemSelected=".onItemSelect">
+                            <MenuItem text="전자 결재" press="onPress" enabled="true" key="elecpayment" startsSection="true" />
+                            <MenuItem text="BPM" press="onPress" enabled="true" key="BPM" startsSection="true" />
+                            <MenuItem text="RPA" press="onPress" enabled="true" key="cRPA" startsSection="true" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                <MenuButton text="프로세스 관리" buttonMode="Split" defaultAction="onNavToPM" useDefaultActionOnly="true">
+                    <menu>
+                        <Menu itemSelected=".onItemSelect">
+                            <MenuItem text="프로세스 조회" press="onPress" enabled="true" key="processlookup" startsSection="true" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                <MenuButton text="성과/통계 분석" buttonMode="Split" defaultAction="onNavToanalysis" useDefaultActionOnly="true">
+                    <menu>
+                        <Menu itemSelected=".onItemSelect">
+                            <MenuItem text="Process Mining" press="onPress" enabled="true" key="buy" startsSection="true" />
+                            <MenuItem text="성과 및 통계 분석" press="onPress" enabled="true" key="analysispage" startsSection="true" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                <MenuButton text="Digital Space" buttonMode="Split" defaultAction="onNavToDS" useDefaultActionOnly="true">
+                    <menu>
+                        <Menu itemSelected=".onItemSelect">
+                            <MenuItem text="Social Workspace" press="onPress" enabled="true" key="socialworkspace" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                <tnt:ToolHeaderUtilitySeparator />
+                <!-- toolheader front -->
+                <ToolbarSpacer>
+                    <layoutData>
+                        <OverflowToolbarLayoutData minWidth="20px" />
+                    </layoutData>
+                </ToolbarSpacer>
+                <!-- sapcer -->
+
+                <Button icon="sap-icon://search" type="Transparent" class="upicon" press=".onNavToWholeSearch" enabled="true">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://microphone" type="Transparent" class="upicon" press=".onNavToVoiceSearch" enabled="true">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://task" type="Transparent" class="upicon" id="plztest" press=".onNavToalram" enabled="true">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://flag" type="Transparent" class="upicon">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://away" type="Transparent" class="upicon" press=".onNavToteamcal" enabled="true">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://favorite" type="Transparent" class="upicon" press=".onNavToworkplacesetting" enabled="true">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://customer" type="Transparent" class="upicon" press=".onNavTohr" enabled="true">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://menu" type="Transparent" class="upicon" press=".onNavTomanual" enabled="true">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+                <Button icon="sap-icon://edit" type="Transparent" class="upicon" press="onOpenDialog7">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Button>
+  
+                <Button text="최민수" type="Transparent" press=".handleUserNamePress"></Button>
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation expanded="false" itemSelect=".onItemSelect">
+                <tnt:NavigationList>
+                    <tnt:NavigationListItem text="CAP EX1" icon="sap-icon://document" expanded="false" key="BoardMain"/>
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <App busy="{app>/busy}">
+                <f:FlexibleColumnLayout id="appView" layout="{app>/layout}" />
+            </App>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

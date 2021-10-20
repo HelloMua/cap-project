@@ -1,0 +1,37 @@
+.manualDesc{
+	height: 60px;
+	position: relative;
+	left: 30px;
+	font-size: large;
+}
+.manualHeader{
+	color:#ffffff;
+	position:relative;
+	top:10px;
+}
+.manualTitleLayout1{
+	width: 100%;
+	border-bottom: outset;
+	border-width: medium;
+	border-color: #A2BDD8;
+}
+.manualTitle{
+	position: relative;
+	top: 2px;
+	font-weight: bold;
+}
+.manualContent{
+	width: 500px;
+}
+.manualThumnail1{
+	position: relative;
+	left: 1075px;
+}
+.manualThumnail2{
+	position: relative;
+	left: 555px;
+}
+.manualThumnail3{
+	position: relative;
+	left: 690px;
+}

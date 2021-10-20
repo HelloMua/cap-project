@@ -1,0 +1,30 @@
+.hanalysisup1 {
+	background-color: #2F3C48;
+	height:2rem;
+}
+.hanalysisup1 .sapMText{
+	margin:10px 0px 0px 5px;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+.analysisicon{
+	width:25px;
+	position:relative;
+	left:5px;
+	top:7px;
+}
+.analysistext{
+	position:relative;
+	bottom:28px;
+	left:30px;
+}
+.analysismove{
+	position:relative;
+	left:230px;
+	top:10px;
+}
+.ansoul{
+	position:relative;
+	left:15px;
+}

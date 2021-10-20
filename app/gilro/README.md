@@ -1,10 +1,10 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Mon Oct 18 2021 01:51:42 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Tue Jun 01 2021 08:34:47 GMT+0900 (대한민국 표준시)|
 |**App Generator**<br>@sap/generator-fiori|
-|**App Generator Version**<br>1.3.7|
-|**Generation Platform**<br>SAP Business Application Studio|
+|**App Generator Version**<br>1.2.0|
+|**Generation Platform**<br>Visual Studio Code|
 |**Floorplan Used**<br>simple|
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>/catalog/
@@ -13,8 +13,6 @@
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_fiori_3|
 |**UI5 Version**<br>Latest|
-|**Enable Code Assist Libraries**<br>False|
-|**Add Eslint configuration**<br>False|
 |**Enable Telemetry**<br>True|
 
 ## gilro

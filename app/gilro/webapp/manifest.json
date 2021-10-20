@@ -19,7 +19,7 @@
           "odataVersion": "4.0"
         }
       }
-		}
+    }
   },
   "sap.ui": {
     "technology": "UI5",
@@ -37,22 +37,21 @@
       "phone": true
     }
   },
-
   "sap.ui5": {
     "flexEnabled": false,
+    "handleValidation": true,
     "rootView": {
-      "viewName": "gilro.view.View1",
+      "viewName": "gilro.view.App",
       "type": "XML",
       "async": true,
-      "id": "View1"
+      "id": "appView"
     },
     "dependencies": {
-			"minUI5Version": "1.95.0",
+      "minUI5Version": "1.66.0",
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "sap.ui.layout": {},
-        "sap.f": {}
+        "sap.ui.layout": {}
       }
     },
     "contentDensities": {
@@ -66,48 +65,213 @@
           "bundleName": "gilro.i18n.i18n"
         }
       },
-        "": {
-            "dataSource": "mainService",
-            "preload": true,
-            "settings": {
-                "synchronizationMode" : "None",
-                "updateGroupId" : "myAppUpdateGroup"
-            }
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "groupId": "$auto",
+          "synchronizationMode": "None",
+          "autoExpandSelect": true
         }
+      }
     },
     "resources": {
       "css": [
         {
           "uri": "css/style.css"
-        }
+        },
+        {
+          "uri": "css/notice/Board.css"
+        },
+        {
+          "uri": "css/notice/BoardNew.css"
+        },
+        {
+          "uri": "css/notice/BoardDetail.css"
+        },
+        {
+          "uri": "css/logon.css",
+          "id": ""
+      },
+      {
+          "uri": "css/salesorder.css",
+          "id": ""
+      },
+      {
+          "uri": "css/coll.css",
+          "id": ""
+      },
+      {
+          "uri": "css/analysis.css",
+          "id": ""
+      },
+      {
+          "uri": "css/analysisPage.css",
+          "id": ""
+      },
+      {
+          "uri": "css/B_style.css",
+          "id": ""
+      },
+      {
+          "uri": "css/fix1.css",
+          "id": ""
+      },
+      {
+          "uri": "css/hr1.css",
+          "id": ""
+      },
+      {
+          "uri": "css/hr2.css",
+          "id": ""
+      },
+      {
+          "uri": "css/hr3.css",
+          "id": ""
+      },
+      {
+          "uri": "css/hrjelinkmanagement.css",
+          "id": ""
+      },
+      {
+          "uri": "css/hrvacation.css",
+          "id": ""
+      },
+      {
+          "uri": "css/hrworkcal.css",
+          "id": ""
+      },
+      {
+          "uri": "css/issueManage.css",
+          "id": ""
+      },
+      {
+          "uri": "css/Kanban.css",
+          "id": ""
+      },
+      {
+          "uri": "css/Manual.css",
+          "id": ""
+      },
+      {
+          "uri": "css/elecpayment.css",
+          "id": ""
+      },
+      {
+          "uri": "css/workplacesetting.css",
+          "id": ""
+      },
+      {
+          "uri": "css/mmAutomatic.css",
+          "id": ""
+      },
+      {
+          "uri": "css/alram.css",
+          "id": ""
+      },
+      {
+          "uri": "css/mmMain.css",
+          "id": ""
+      },
+      {
+          "uri": "css/move.css",
+          "id": ""
+      },
+      {
+          "uri": "css/pm.css",
+          "id": ""
+      },
+      {
+          "uri": "css/PO.css",
+          "id": ""
+      },
+      {
+          "uri": "css/procAnalysis.css",
+          "id": ""
+      },
+      {
+          "uri": "css/procLookup.css",
+          "id": ""
+      },
+      {
+          "uri": "css/SocialW.css",
+          "id": ""
+      },
+      {
+          "uri": "css/teamcal.css",
+          "id": ""
+      },
+      {
+          "uri": "css/tiny.css",
+          "id": ""
+      },
+      {
+          "uri": "css/TODO.css",
+          "id": ""
+      },
+      {
+          "uri": "css/collmanage.css",
+          "id": ""
+      },
+      {
+          "uri": "css/voiceSearch.css",
+          "id": ""
+      },
+      {
+          "uri": "css/BPM.css",
+          "id": ""
+      }
       ]
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "sap.f.routing.Router",
         "viewType": "XML",
-        "async": true,
         "viewPath": "gilro.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
+        "controlId": "appView",
+        "clearControlAggregation": false,
+        "transition": "slide",
+        "bypassed": {
+          "target": "notFound"
+        },
+        "async": true
       },
+
+
       "routes": [
         {
-          "name": "RouteView1",
-          "pattern": "RouteView1",
-          "target": ["TargetView1"]
-        }
+          "name": "Home",
+          "pattern": "",
+          "target": "home",
+          "layout": "OneColumn"
+        },
+      {
+        "pattern": "capex1/BoardMain",
+        "name": "BoardMain",
+        "target": "BoardMain",
+        "layout": "OneColumn"
+      }
       ],
+
+
       "targets": {
-        "TargetView1": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "View1",
-          "viewName": "View1"
+        "home": {
+          "viewId": "home",
+          "controlAggregation": "beginColumnPages",
+          "viewName": "Home"
+        },
+        "BoardMain" : {
+          "viewId": "BoardMain",
+          "viewPath": "gilro.view.capex1",
+          "viewName": "BoardMain",
+          "controlAggregation": "beginColumnPages"
         }
       }
+
+
+
+
     }
   }
 }

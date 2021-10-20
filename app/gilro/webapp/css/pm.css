@@ -1,0 +1,37 @@
+.pmtitle .sapMTitle{
+	font-size:13px !important;
+}
+.hpmtitle{
+	background-color :#2F3C48;
+	margin : 10px 10px 5px 10px;	
+}
+
+.hpmtitle .sapMText{
+	margin:10px 0px 0px 5px;
+	color:#ffffff;
+	font-weight:bold;
+}
+.pmicon{
+	width:28px;
+	position:relative;
+	left:4px;
+	top:6px;
+}
+.pmtext{
+	position:relative;
+	bottom:30.5px;
+	left:35px;
+	color: #ffffff;
+}
+.pmb{
+	position:relative;
+	bottom:57.2px;
+	left:1580px;
+	height:30px;
+}
+.pmb .sapMBtnInner{
+	height:30px;
+}
+.pmb .sapMBtnContent{
+	line-height: 1.5rem;
+}

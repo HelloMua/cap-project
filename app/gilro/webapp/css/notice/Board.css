@@ -1,0 +1,21 @@
+.fileIcon__Blue {
+    display: none !important;
+}
+.manager .sapMBtn .sapMBtnInner{
+    color: red !important;
+}
+.sapFDynamicPageHeader.sapFDynamicPageHeaderWithContent {
+padding: 0 !important;
+box-shadow: 0 !important;
+}
+td[id="__item2-__clone0_cell1"] {
+  text-align: left !important;
+}
+
+.sapFDynamicPageToggleHeaderIndicator.sapMBtn, .sapFDynamicPageHeaderPinButton.sapMBtn {
+  z-index: 1000 !important;
+}
+.boardTitle {
+  width: 100%;
+  text-align: left;
+}

@@ -1,0 +1,142 @@
+.fix1newtitle{
+    font-weight: bold;
+    position:relative;
+    left:5px;
+    top:4px;
+}
+.fix1newtitlehbox{
+    height: 50px;
+}
+.fix1allnew1{
+    border: 1px solid #969696;
+    background-color: #f0f0f0;
+}
+.fix1allnew1combo{
+    width:1450px;
+}
+.fix1allnew1text{
+    position:relative;
+    left:15px;
+    top:12px;
+    font-weight: bold;
+}
+.fix1allnew1input{
+    position:relative;
+    bottom:5px;
+}
+.dddd{
+    border: 1px solid #969696;
+}
+.fix1alldetailbtn1{
+    position:relative;
+    left:725px;
+}
+.fix1alldetailbtn2{
+    position:relative;
+    left:745px;
+}
+.fix1alldetailsep{
+    border:0.5px solid #f0f0f0;
+    width:1600px;
+    position: relative;
+    left: 30px;
+}
+.fix1alldetail1{
+    height: 200px;
+}
+.fix1alldetail{
+    position:relative;
+    right:310px;
+}
+.fix1alldetailbold{
+    font-weight:bold !important;
+}
+.fix1write1{
+    width: 600px;   
+    position:relative;
+    left : 10px;
+    top:10px; 
+}
+.fix1write2{
+    width: 600px;
+    position:relative;
+    left: 100px;
+    top:10px;
+}
+.fix1write3{
+    width:1630px;
+    position:relative;
+    left: 10px;
+    top:10px;
+}
+.fix1write4{
+    width:1200px;
+    position:relative;
+    left: 30px;
+    top:50px;
+}
+.idProductsTable .sapMListTbl .sapMLIB:hover {
+  background-color: #f0f0f0;
+}
+.hfix1title{
+	background-color :#2F3C48;
+	margin : 10px 10px 0 10px;	
+}
+.hfix1title .sapMImg{
+	margin-top:5px;
+	margin-left:5px;
+	height:30px;
+}
+.hfix1title .sapMText{
+	position:relative;
+	bottom:33px;
+	left:40px;
+	color:#ffffff;
+	font-size: 20px;
+	margin-top:5px;
+}
+.hfix1subtitle
+{
+	background-color:#EFF4F8;
+		margin : 10px 10px 0 10px;	
+}
+.hfix1subtitle1{
+	border-bottom:0.3px solid #000000;
+}
+.fixsearch{
+	position:relative;
+	left:1150px;
+}
+.hfix1subtitle3{
+	width:140px;
+}
+.hfix1subtitle3 .sapMText{
+	position:relative;
+	bottom:10px;
+	left:60px;
+	font-size:13px;
+}
+.hfix1subtitle3 .sapMTitle{
+		position:relative;
+	left:30px;
+	top:20px;
+	font-size:30px;
+	margin-top:10px;
+	font-weight:bold;
+}
+.fixHorizonList{
+    display: inline-block;
+    table-layout: horizontal;
+    width:1000px;
+}
+.fixattachlist{
+    width:200px;
+    position:relative;
+    top:3px;
+    left:10px;
+}
+.fixattachlist1{
+    width:200px;
+    position:relative;
+    bottom:3px;
+}

@@ -1,0 +1,12 @@
+.voiceImage{
+    position: relative;
+    top: 150px;
+    left: 400px;
+}
+.voiceTitle{
+    position: relative;
+    top:150px;
+    left:460px;
+    font-size: 30px;
+    font-weight: bold;
+}

@@ -1,0 +1,133 @@
+.mmBox{
+	color: #ffffff;
+	height:40px;
+}
+.mmBox.sapMText{
+	position: relative;
+	top:11px;
+}
+.mmtitle .sapMText{
+	color:#ffffff;
+	position:relative;
+	left:5px;
+	top:6px;
+}
+.mmButton111{
+	position:relative;
+	left:810px;
+	top:125px;
+}
+.mmLine{
+	position: relative;
+	top: 40px;
+	background-color:#2F3C48;
+	margin : 10px 0px 10px 0px;
+}
+.mmLine .sapMImg{
+	width:25px;
+	height:25px;
+}
+.Bmm01{
+	position: relative;
+	top: -62px;
+	left: 70px;
+	font-size: large;
+	color: #ffffff;
+}
+.Bmm02{
+	position: relative;
+	top: -95px;
+	left: 250px;
+	font-size: xx-large;
+	color: #ffffff;
+}
+
+.Bmm03{
+	position: relative;
+	top: -310px;
+	left: 80px;
+	font-size: large;
+	color: #ffffff;
+}
+.Bmm04{
+	position: relative;
+	top: -315px;
+	left: 90px;
+	font-size: xx-large;
+	color: #ffffff;
+}
+.Bmm05{
+	position: relative;
+	top: -300px;
+	left: 10px;
+	font-size: 15px;
+	font-weight: Bold;
+}
+.Bmm06{
+	position: relative;
+	top: -200px;
+	left: 10px;
+	color: #ffffff;
+}
+
+.Bmm07{
+	position: relative;
+	top: -67px;
+	left: 90px;
+	font-size: xx-large;
+	color: #ffffff;
+}
+.Bmm08{
+	position: relative;
+	top: -225px;
+	left: 10px;
+	color: #ffffff;
+}
+.Bmm09{
+	position: relative;
+	top: -67px;
+	left: 150px;
+	font-size: xx-large;
+	color: #ffffff;
+}
+.Bmm10{
+	position: relative;
+	top: -315px;
+	left: 145px;
+	font-size: xx-large;
+	color: #ffffff;
+}
+
+.SearchMM{
+	height: 180px;
+}
+.codeMM{
+	position: relative;
+	top: 50px;
+	left: 50px;
+}
+.cooperMM{
+	position: relative;
+	top: 50px;
+	left: 70px;
+}
+.classifyMM{
+	position: relative;
+	top: 50px;
+	left: 90px;
+}
+.mmButton{
+	position: relative;
+	top: 70px;
+	left: 120px;
+}
+.mmButton1{
+	position: relative;
+	top: 120px;
+	left: 780px;
+}
+.mmButton1111{
+	position: relative;
+	top: 120px;
+	left: 880px;
+}

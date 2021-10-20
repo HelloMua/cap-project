@@ -1,0 +1,19 @@
+.procAnalysisBox{
+	border : 0.3px solid #000000;
+}
+.analysisTitle{
+	background:#496B8A;
+}
+.analysisIcon{
+	width:25px;
+	position:relative;
+	left:5px;
+	top:9px;
+}
+.analysisText {
+    position: relative;
+    top: -14px;
+    left: 40px;
+    font-weight:bold;
+    color:#ffffff;
+}

@@ -1,0 +1,26 @@
+.underGrid{
+	position: relative;
+	top: 10px;
+}
+.AutomaticGrid1{
+	position: relative;
+	top: 20px;
+}
+.mmAutogrid{
+	padding: 10px;
+}
+.AutomaticGrid3{
+	position: relative;
+	top: 20px;
+	grid-column: 3/5;
+}
+.mmCalender{
+	position: relative;
+	top: 18px;
+}
+.mmdelaytitle{
+	font-size:13px;
+	color:#ffffff;
+	position:relative;
+	top:7px;
+}

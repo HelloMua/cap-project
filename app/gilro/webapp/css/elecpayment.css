@@ -1,0 +1,193 @@
+.elecpaymenttododoclistback{
+    background-color: #ffffff;
+}
+.elecpaymentmasterlistback{
+    background-color: #FAFAFA;
+}
+.elecpaymenttododoclisttitle{
+    position:relative;
+    left:10px;
+    font-size:15px;
+    font-weight: bold;
+}
+.elecpaymenttododoclistbt1{
+    position:relative;
+    left:250px;
+    width:100px;
+}
+.elecpaymenttododoclistbt1 .sapMBtnText{
+    color:#ffffff;
+}
+.elecpaymenttododoclistbt1 .sapMBtnInner{
+    background-color:#FE630F;
+    border-radius: 15px;
+}
+.elecpaymenttododoclist2{
+    position:relative;
+    left:10px;
+    width:300px !important;
+    border-radius: 15px;
+}
+.elecpaymentwirtelist2{
+    position:relative;
+    left:17px;
+    width:250px !important;
+    border-radius: 15px;
+}
+.elecpaymentwirtelist3{
+    position:relative;
+    top:14px;
+    left:10px;
+}
+.elecpaymenttododoclist2 .sapMInputBaseInner{
+    background-color:#F8F8F8;
+     border-radius: 15px;
+     width:300px;
+}
+.elecpaymenttododoclist3{
+    position:relative;
+    left:27px;
+    width:100px;
+}
+.elecpaymenttododoclist4{
+    width:120px;
+    left:15px;
+}
+.elecpaymentwritelist1{
+    width:340px;
+    left:15px;
+}
+.elecpaymenttododoclist5{
+    width:120px !important;
+    left:25px;
+}
+.elecpaymenttododoclist6{
+    width: 70px;
+    left:35px;
+}
+.elecpaymenttododoclisttext{
+    position:relative;
+    top:15px;
+    left:10px;
+}
+.elecpaymenttododoclisttext1{
+    position:relative;
+    top:15px;
+    left:20px;
+}
+.elecpaymenttododoclist3 .sapMBtnInner{
+    background-color:#F8F8F8;
+     border-radius: 15px;
+}
+.elecpaymenttododoclist3 .sapMBtnText{
+    color:#AAAAAA;
+}
+.elecpaymenttododocdetailapprovalline1{
+    border:1px solid #AAAAAA;
+    width:200px;
+    height:100px;
+    position:relative;
+    left:20px;
+    top:15px;
+}
+.elecpaymenttododocdetailapprovallinetext1{
+    position:relative;
+    left:35px !important;
+    bottom:3px !important;
+}
+.elecpaymenttododocdetailapprovallinetext2{
+    position:relative;
+    left:60px !important;
+    bottom:3px !important;
+}
+.elecpaymenttododocdetailapprovalline2{
+     background-color: #F5F5F5;
+     border:1px solid #AAAAAA;
+}
+.elecpaymenttododocdetailapprovalline3{
+     border:1px solid #AAAAAA;
+}
+.elecpaymenttododocdetaillistgray{
+    background-color: #F5F5F5;
+    border:1px solid #AAAAAA;
+}
+.elecpaymenttododocdetaillistgray .sapMText{
+    position:relative;
+    top:7px;
+    left:10px;
+    font-weight: bold;
+}
+.elecpaymenttododocdetaillist{
+    border:1px solid #AAAAAA;
+    background-color: #ffffff;
+}
+.elecpaymenttododocdetaillist .sapMText{
+    position:relative;
+    top:7px;
+    left:10px;
+}
+.elecpaymentmastertitle{
+    font-weight: bold;
+    height:50px;
+}
+.elecpaymaster{
+    position:relative;
+    left:30px;
+    width:300px;
+}
+.elecpaymaster .sapMBtnText{
+    color:#ffffff;
+    text-align: center;
+}
+.elecpaymaster .sapMBtnInner{
+    background-color:#FE630F;
+    border-radius: 15px;
+}
+.elecpaymenttododocdetaillbt1{
+    position:relative;
+    left:420px;
+    width:100px;
+}
+.elecpaymenttododocdetaillbt1 .sapMBtnText{
+    color:#ffffff;
+}
+.elecpaymenttododocdetaillbt1 .sapMBtnInner{
+    background-color:#FE630F;
+    border-radius: 15px;
+}
+.elecpaymenttododocdetaillbt2{
+    position:relative;
+    left:430px;
+    width:100px;
+}
+.elecpaymenttododocdetaillbt2 .sapMBtnInner{
+    background-color:#BFBAB7;
+     border-radius: 15px;
+}
+.elecpaymenttododocdetaillbt2 .sapMBtnText{
+    color:#ffffff;
+}
+.elecpaymenttododocdetaillbt21{
+    position:relative;
+    left:440px;
+    width:100px;
+}
+.elecpaymenttododocdetaillbt21 .sapMBtnInner{
+    background-color:#BFBAB7;
+     border-radius: 15px;
+}
+.elecpaymenttododocdetaillbt21 .sapMBtnText{
+    color:#ffffff;
+}
+.elecpaymenttododocdetaillbt3{
+    position:relative;
+    left:450px;
+    width:100px;
+}
+.elecpaymenttododocdetaillbt3 .sapMBtnInner{
+    background-color:#F8F8F8;
+     border-radius: 15px;
+}
+.elecpaymenttododocdetaillbt3 .sapMBtnText{
+    color:#AAAAAA;
+}

@@ -1,0 +1,249 @@
+.ploockup{
+	width:780px !important;
+}
+.pcteset{
+	border:1px solid #000000;
+}
+.pcchangestep1{
+	position:relative;
+}
+.pcchangestep2{
+	position:relative;
+	left: 15px;
+}
+.pcchangestep3{
+	position:relative;
+	left: 20px
+}
+.pcchangestep4{
+	position:relative;
+	top:52px;
+	right:180px;
+	background:white;
+	color:black;
+}
+.pcchangestep41{
+	position:relative;
+	top:52px;
+	right:175px;
+	background:#0F7E3E;
+}
+.pcchangestep42{
+	position:relative;
+	top:52px;
+	right:170px;
+	background:#E9730C;
+}
+.pcchangestep43{
+	position:relative;
+	top:52px;
+	right:165px;
+	background:#0653A0;
+}
+.pcchangestep44{
+	position:relative;
+	top:52px;
+	right:160px;
+	background:#B80000;
+}
+.pcchangestep5{
+	position:relative;
+	top:126px;
+	right:482px;
+}
+.pcchangestep6{
+	position:relative;
+	top:108px;
+	right:413px;
+}
+.pcchangestep7{
+	position:relative;
+	top:90px;
+	right:344px;
+}
+.pcchangestep8{
+	position:relative;
+	top:72px;
+	right:274px;
+}
+.pcchangestep9{
+	position:relative;
+	top:54px;
+	right:205px;
+}
+.hpcb1{
+	position:relative;
+	left:715px;
+}
+.hpcb2{
+	position:relative;
+	left:730px;
+}
+.hpcb3{
+	position:relative;
+	left:745px;
+	width:85px;
+}
+.hpccontent1{
+	position:relative;
+	bottom:3px;
+	height:60px;
+}
+.hpccontent2{
+	position:relative;
+	bottom:3px;
+	height:40px;
+}
+.hpccontent3{
+	position:relative;
+	bottom:3px;
+	height:200px;
+}
+.hpccontent3 .sapMInputBaseInner[placeholder]{
+	position:relative;
+	bottom:80px;
+}
+.hpccontent4{
+	position:relative;
+	bottom:3px;
+	height:40px;
+}
+.hpccontent5{
+	position:relative;
+	bottom:3px;
+	height:40px;
+}
+.hpctitle{
+	background:#2F3C48;
+}
+.hpctitle .sapMText{
+	position:relative;
+	top:11px;
+	left:5px;
+	color:#ffffff;
+}
+.hpctitle .sapMImg{
+	position:relative;
+	top:3px;
+}
+.pctside{
+	text-align:center;
+	font-weight:bold;
+}
+.pctside .sapMText{
+	position:relative;
+	top:13px;
+}
+.pchangemain{
+
+	width:1660px;
+	height:800px;
+	position:relative;
+	top:30px;
+}
+.procManageMain{
+	position: relative;
+	top: -50px;
+	height: 740px;
+}
+.procIcon{
+	position: relative;
+	color: #000000;
+	top: 9px;
+}
+.procTitle{
+	font-size: 14px;
+	color: #000000;
+	position: relative;
+	top: 14px;
+}
+.procInnerBox{
+	background: #496B8A;
+	height: 40px;
+}
+.procInnerBoxtext{
+	text-align: center;
+	color: #ffffff;
+	font-size: 20px;
+	position: relative;
+	top: 10px;
+	left: 90px;
+}
+
+.procLookupButton{
+	position: relative;
+	top: 110px;
+	left: 835px;
+}
+.procLookupButton1{
+	position: relative;
+	top: 110px;
+	left: 855px;
+}
+
+.procInnerBoxtext2{
+	color: #ffffff;
+}
+.procVBox1{
+	grid-column: 1 / 4;
+	grid-row: 1;
+	height: 50px;
+	background: #EFF4F9;
+}
+.procVBox2{
+	grid-column: 1 / 4;
+	grid-row: 2;
+	height: 250px;
+}
+.procVBox3{
+	grid-column: 3;
+	grid-row: blue;
+	height: 250px;
+	background: #C0C0C0;
+}
+.procButton{
+	position:relative;
+	left: 355px;
+	height: 20px;
+}
+.procButton2{
+	position:relative;
+	left: 375px;
+}
+.docuProperty{
+	position: relative;
+	left: 20px;
+	top: -20px;
+}
+.SearchPL{
+	height: 180px;
+	position: relative;
+	top: 30px;
+	left: -25px;
+}
+.cellonis{
+	position: relative;
+	top: -20px;
+	height: 700px;
+	width: 1650px;
+}
+.procManaging{
+	position: relative;
+	top:-20px;
+	background-color:#2F3C48;
+	margin : 10px 0px 10px 0px;
+}
+
+
+.procManagingImg{
+	width:25px;
+	height:10px;
+}
+
+.procManagingTitle{
+	position:relative;
+	top:9px;
+	left:10px;
+	color:#ffffff;
+	font-weight:bold;
+}

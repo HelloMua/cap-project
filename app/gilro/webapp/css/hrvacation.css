@@ -1,0 +1,242 @@
+.hrvatest{
+	background:#F2F2F2;
+}
+.hrvatest11{
+	border:1px solid #000000;
+	text-align:center;
+}
+.hrvatest11 .sapMText{
+	position:relative;
+	top:7px;
+	font-weight:bold;
+}
+.hrvatest1{
+	border:1px solid #000000;
+	background:#EFF4F9;
+	text-align:center;
+}
+.hrvatest1 .sapMText{
+	position:relative;
+	top:29px;
+	font-weight:bold;
+}
+.hrvatest2{
+	background:#7F7F7F;
+}
+.hrvatest2 .sapMText{
+	color:#ffffff;
+	position: relative;
+	top:4px;
+	left:5px;
+	font-weight:bold;
+}
+.hrvatest3{
+	border:1px solid #000000;
+	background:#EFF4F9;
+	text-align:center;
+}
+.hrvatest3 .sapMText{
+	position:relative;
+	top:7px;
+	font-weight:bold;
+}
+.hrmarginno{
+	margin: -10px -10px -15px -10px;
+}
+.hrmarginno{
+	margin: -10px -10px -15px -10px;
+	height:800px;
+}
+.hrnew1{
+	background:#496B8A;
+}
+.hrnew1 .sapMText{
+	position:relative;
+	top:10px;
+	left:20px;
+	color:#ffffff;
+}
+.hrnew2{
+	position:relative;
+	left:1038px;
+}
+.hrnew3{
+	position:relative;
+	left:1124px;
+}
+.hrnewub1{
+	position:relative;
+	left:1400px;
+	bottom:3px;
+	height:30px;
+}
+.hrnewub2{
+	position:relative;
+	left:1538px;
+	bottom:33px;
+	height:30px;
+}
+
+.hrnewfootb1{
+	width:200px;
+	position:relative;
+	top:10px;
+	left:630px;
+}
+.hrnewfootb2{
+	width:200px;
+	position:relative;
+	bottom:38px;
+	left:850px;
+}
+.hrnewcontent1b1{
+	height:20px;
+	position:relative;
+	left:5px;
+}
+.hrnewcontent1b1 .sapMBtnInner{
+	height:20px;
+}
+.hrnewcontent1b1 .sapMBtnContent{
+	line-height:1rem;
+}
+.hrnewcontent1b2{
+	height:20px;
+	position:relative;
+	left:110px;
+	bottom:20px;
+}
+.hrnewcontent1b2 .sapMBtnInner{
+	height:20px;
+}
+.hrnewcontent1b2 .sapMBtnContent{
+	line-height:1rem;
+}
+.hrenewcontent2input1{
+	position:relative;
+	left:45px;
+	bottom:20px;
+	height:23px !important;
+	width:8% !important;
+}
+.hrenewcontent2text{
+	position:relative;
+	top:3px;
+	left:3px;
+}
+.hrenewcontent2text1{
+	position:relative;
+	left:167px;
+	bottom:44px;
+}
+.hrenewcontent2input2{
+	position:relative;
+	left:225px;
+	bottom:68px;
+	height:23px !important;
+	width:8% !important;
+}
+.hrenewcontent2text2{
+	position:relative;
+	left:352px;
+	bottom:95px;
+}
+.hrenewcontent2text3{
+	position:relative;
+	left:405px;
+	bottom:113px;
+	color:blue;
+}
+.hrenewcontent3{
+	height:23px !important;
+	width:97% !important;
+	position:relative;
+	left:5px;
+	bottom:1px;
+}
+.hrenewcontent4{
+	height:80px !important;
+	width:97% !important;
+	position:relative;
+	left:5px;
+	bottom:1px;
+}
+.hrenewcontent5{
+	height:23px !important;
+	width:97% !important;
+	position:relative;
+	left:5px;
+	bottom:1px;
+}
+.hrenewcontent6{
+	height:23px !important;
+	width:97% !important;
+	position:relative;
+	left:5px;
+	bottom:1px;
+}
+.hrenewcontent7{
+	height:23px !important;
+	width:15% !important;
+	position:relative;
+	left:5px;
+	bottom:1px;
+}
+.hrenewcontent7b1{
+	height:20px;
+	position:relative;
+	left:248px;
+	bottom:31px;
+}
+.hrenewcontent7b1 .sapMBtnInner{
+	height:20px;
+}
+.hrenewcontent7b1 .sapMBtnContent{
+	line-height:1rem;
+}
+.hrenewcontent7b2{
+	height:40px;
+	position:relative;
+	left:313px;
+	bottom:57px;
+}
+.hrenewcontent7b2 .sapMBtnInner{
+	height:20px;
+}
+.hrenewcontent7b2 .sapMBtnContent{
+	line-height:1rem;
+}
+.hrenewcontent8{
+	position:relative;
+	bottom:8px;
+}
+.hrenewcontent8text{
+	position:relative;
+	bottom:42px;
+	left:90px;
+	color:red;
+}
+.hrvacationbplus{
+	height:30px !important;
+	position:relative;
+	bottom:30px;
+	left:1330px;
+}
+.hrvactionbplus .sapMBtnInner{
+	height:30px !important;
+}
+.hrnewdownb1{
+	width:60px;
+	position:relative;
+	left:710px;
+}
+.hrnewdownb2{
+	width:60px;
+	position:relative;
+	left:780px;
+}
+.hrnewdownb3{
+	width:60px;
+	position:relative;
+	left:850px;
+}

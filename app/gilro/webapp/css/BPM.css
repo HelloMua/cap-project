@@ -1,0 +1,41 @@
+.bpmStat{
+    border-top: solid;
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+    border-width: 0.3px;
+    border-color: gainsboro;
+    width: 308px;
+}
+.procLooking{
+    border-top: solid;
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+    border-width: 0.3px;
+    border-color: gainsboro;
+}
+.coWorkLeft{
+    border-top: solid;
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+    border-width: 0.3px;
+    border-color: gainsboro;
+}
+.bpmRecevieWhole{
+    border-top: solid;
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+    border-width: 0.3px;
+    border-color: gainsboro;
+}
+.bpmMicroGraph1{
+    position: relative;
+    left: -70px;
+}
+.bpmMicroGraph2{
+    position: relative;
+    left: -135px;
+}

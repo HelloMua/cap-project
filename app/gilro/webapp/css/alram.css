@@ -1,0 +1,74 @@
+.alrambox{
+    width:327px;
+    height:100px;
+    background-color: #EAAB00;
+    align-items: center;
+}
+.alramboxtitle{
+    font-weight: bold;
+    top:10px;
+}
+.alramboxbutton{
+    top:15px;
+}
+.alramboxbutton .sapMBtnIcon{
+    color:#ffffff;
+}
+.alramboxbutton .sapMBtnInner{
+    background-color: #EAAB00;
+    border:none;
+
+}
+.alramappleft{
+    background-color: #AAAAAA;
+}
+.alramappright{
+    background-color: #8E8E8E;
+}
+.alramappright .sapMText{
+    position:relative;
+    left:15px;
+    top:20px;
+    color:#ffffff;
+}
+.alramappbutton{
+    position:relative;
+    left:13px;
+    top:6px;
+}
+.alramappbutton .sapMBtnInner{
+    background-color: #AAAAAA;
+    border:none;
+
+}
+.alramappbutton .sapMBtnIcon{
+    color:#ffffff;
+}
+.alramtask{
+    border-bottom: 1px solid #AAAAAA;
+}
+.alramtasktitle{
+    font-weight: bold;
+}
+.alramtasklink{
+    height: 30px;
+    position:relative;
+    left:10px;
+    top:10px;
+}
+.alrameditlist{
+    height:20px;
+}
+.alrameditlist .sapMBtnInner{
+    height: 20px;
+}
+.alrameditlist .sapMBtn{
+    height: 20px;
+}
+.alrameditlist .sapMBtnContent {
+
+    line-height: 1rem;
+}
+.alramheader .sapMPanelHdr{
+    font-weight: bold;
+}

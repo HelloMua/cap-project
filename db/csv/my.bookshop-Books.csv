@@ -1,6 +1,6 @@
-ID;title;author_ID;stock
-201;Wuthering Heights;101;12
-207;Jane Eyre;107;11
-251;The Raven;150;333
-252;Eleonora;150;555
-271;Catweazle;170;22
+ID;title;author_ID;stock;ploat
+201;Wuthering Heights;101;12;In 1801, <p>Mr Lockwood, the new tenant at Thrushcross Grange in Yorkshire, pays a visit to his landlord, Heathcliff, at his remote moorland farmhouse, Wuthering Heights. There he meets a reserved young woman (later identified as Cathy Linton); Joseph, a cantankerous servant; and Hareton,</p>
+202;Jane Eyre;107;11;In 1801, <p>Jane Eyre is divided into 38 chapters. It was originally published in three volumes in the 19th century, comprising chapters 1 to 15, 16 to 27, and 28 to 38.The second edition was dedicated to William Makepeace Thackeray.The novel is a first-person narrative from the perspective of the title character. Its setting is somewhere in the north of England, l.</p>
+203;The Raven;150;333;In 1801, <p>An unnamed speaker sits in his chamber on a dreary December night, reading old, esoteric books. He dearly misses his love, Lenore, who presumably died recently, and he hopes that reading will distract him from his loss. He has nearly fallen asleep when he suddenly hears someone—or something—knocking on the door </p>
+204;Eleonora;150;555;In 1801, <p>The story follows an unnamed narrator who lives with his cousin and aunt in "The Valley of the Many-Colored Grass", an idyllic paradise full of fragrant flowers, fantastic trees, and a "River of Silence". It remains untrodden by the footsteps of strangers and so they live isolated but happy. After living like this for fifteen years,"</p>
+205;Catweazle;170;22;In 1801, <p>The premise in the first episode is that an 11th century bumbling wizard, named Catweazle (Geoffrey Bayldon) is pursued by soldiers through a wood, carrying only his magic charm and his toad familiar (a familiar is a supernatural entity). He says a spell as he jumps into a pond. When he comes out he thinks he has made the wood and soldiers disappear, but in fact has jumped 900 years into the future.</p>

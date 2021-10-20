@@ -1,0 +1,14 @@
+.toolbar{
+    background-color: white !important;
+    align-items: center;
+    justify-content: center;
+}
+.backBtn {
+    color: black !important;
+}
+.uploadCollectionItem .sapUiFupInputMask {
+    display: none;
+}
+div[id="container-GILRO---hjhBoardDetail--uploadCollection-1-uploader"] {
+    display: none;
+}

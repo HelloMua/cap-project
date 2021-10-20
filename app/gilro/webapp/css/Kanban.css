@@ -1,0 +1,44 @@
+.kanbanTodoTitle{
+	background-color :#2F3C48;	
+}
+.kanbanProgTitle{
+	background-color :#2F3C48;
+}
+.kanbanDoneTitle{
+	background-color :#2F3C48;
+}
+.kanbanTodo{
+	border-left: outset;
+	border-right: outset;
+	border-width: medium;
+	border-color: #A2BDD8;
+}
+.kanbanProg{
+	border-left: outset;
+	border-right: outset;
+	border-width: medium;
+	border-color: #A2BDD8;
+}
+.kanbanDone{
+	border-left: outset;
+	border-right: outset;
+	border-width: medium;
+	border-color: #A2BDD8;
+}
+.kanbanTitle{
+	position: relative;
+	top: 5px;
+	font-size: large !important;
+	color: #ffffff !important;
+}
+.kanbanTitleIcon{
+	color: #ffffff;
+	font-size: 2em;
+}
+.ktileLayout{
+	width: 150px !important;
+	height: 150px !important;
+}
+.gnomargin{
+	margin:0px -10px 0px 0px !important;
+}

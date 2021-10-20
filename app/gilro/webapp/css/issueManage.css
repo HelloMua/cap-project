@@ -1,0 +1,36 @@
+.issueBar1{
+	height: 30px;
+	font-size: xx-large;
+	color: red;
+	position: relative;
+	top: 0px;
+	left: 1390px;
+}
+.issueBar2{
+	height: 30px;
+	font-size: x-large;
+	position: relative;
+	top:0px;
+	left: 1395px;
+}
+.issueBar{
+	height: 30px;
+	font-size: x-large;
+	position: relative;
+	top: 0px;
+	left: 1370px;
+}
+.issuelist{
+	position:relative;
+	bottom:30px;
+}
+.issueHeader{
+	position: relative;
+	top: 8px;
+	color: #ffffff;
+}
+.issueBar3{
+	position:relative;
+	top:15px;
+	left:1168px;
+}

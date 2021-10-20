@@ -1,0 +1,383 @@
+.hhrinstitutioncontent{
+    position: relative;
+    top:15px;
+    left:40px;
+    height:25px;
+    color:#000000 !important;
+}
+.hhrinstitutioncontent .sapMLnk:visited{
+    color:#000000 !important;
+}
+.hhrinstitutioncontent .sapMLnk{
+    color:#000000 !important;
+}
+.hhrinstitutiontitlei{
+    font-size: 25px;
+    position: relative;
+    top:10px;
+    left:10px
+}
+.hhrinstitutiontitle{
+    font-weight: bold !important;
+    position: relative;
+    top:13px;
+    left:20px;
+}
+.hhrinstitution1{
+    background-color: #F2F2F2;
+}
+.hhrinstitution{
+    border :3px solid #F2F2F2
+}
+.hhrsearch{
+    position: relative;
+    bottom: 55px;
+    left:5px;
+}
+.hhrsearch .sapMBtnInner{
+    background-color: initial !important;
+    color: #000000 !important;
+    font-size: bold !important;
+}
+.hhrchangeb{
+    position: relative;
+    left:130px;
+    bottom: 27px;
+    height: 30px;
+}
+.hhrchangeb .sapMBtnInner{
+    height: 30px;
+}
+.hhrchangeb .sapMBtnContent{
+    line-height: 1.8rem;
+}
+.hhr1pic
+{
+	height:280px;
+	width:100%;
+	position:relative;
+	top:25px;
+}
+.hhr1pic1
+{
+	height:360px;
+	width:100%;
+	position:relative;
+	top:25px;
+}
+.hhr1s1{
+	background:#7F7F7F;
+}
+.hhr1s1 .sapMText{
+	color:#ffffff;
+	margin :10px 0px 0px 10px;
+}
+.hhr1s2{
+	background:#F2F2F2;
+}
+.hhr1s2 .sapMText{
+	color:#000000;
+	margin :10px 0px 0px 10px;
+}
+.hhr1s3{
+	background:#7F7F7F;
+}
+.hhr1s3 .sapMText{
+	color:#ffffff;
+	margin :10px 0px 0px 10px;
+}
+.hfix1subtitle .sapMITBContent{
+	padding-right:0rem !important;
+	padding-left:0rem !important;
+}
+.ss{
+   border:1px solid #000000;
+}
+.hredu1{
+	height:440px;
+}
+.hredu2{
+	height:220px;
+}
+.hredur1{
+	background:#799BB9;
+}
+.hredur1 .sapMTitle{
+	font-weight:bold;
+	position:relative;
+	top:20px;
+	left:20px;
+}
+.hredur2 .sapMTitle{
+	font-weight:bold;
+	position:relative;
+	top:20px;
+	left:20px;
+}
+.hredur2{
+	background:#BFBFBF;
+}
+.hredudown1{
+	background:#799BB9;
+}
+.hredudown2{
+	border:0.5px solid #799BB9;
+}
+.hreduup1{
+	background:#496B8A;
+}
+.hredutitle{
+	color:#ffffff;
+	font-weight:bold;
+	position:relative;
+	top:10px;
+	left:15px;
+}
+.hredudowntitle{
+	font-weight:bold;
+	position:relative;
+	top:10px;
+	left:10px;
+}
+.hredudowncontent{
+	position:relative;
+	left: 10px;
+	top:15px;
+}
+.hredurbutton{
+	position:relative;
+	left:367px;
+	bottom:20px;
+}
+.hredurcontent{
+	position:relative;
+	left:20px;
+}
+.hraddimformantion1{
+	background:#A6A6A6;
+}
+.hraddimformantion1 .sapMText{
+	color:#ffffff;
+	position:relative;
+	top:10px;
+	left:10px;
+}
+.hraddimformantion2{
+	border:2px solid #A6A6A6;
+}
+.hraddimformantion3{
+	background:#799BB9;
+}
+.hraddimformantion3 .sapMText{
+	color:#ffffff;
+	position:relative;
+	top:10px;
+	left:10px;
+}
+.hraddimformantion4{
+	border:2px solid #799BB9;
+}
+.hraddimformantion4t1{
+	position:relative;
+	top:10px;
+	left:10px;
+	font-weight:bold;
+}
+.hraddimformantion4t2{
+	position:relative;
+	left:325px;
+	bottom:45px;
+}
+.hraddimformationteam{
+	border:1px solid #A6A6A6;
+}
+.hraddimformationteam1{
+	background:#A6A6A6;
+	text-align:center;
+	position:relative;
+	bottom:45px;
+	opacity : 0.9;
+}
+.hraddimformationteam1 .sapMText{
+	color:#ffffff;
+	position:relative;
+	top:10px;
+	height:40px;
+}
+.hraddimformantionmy1{
+	font-weight:bolder;
+	position:relative;
+	left:20px;
+	top:60px;
+}
+.hraddimformantionmy2{
+	position:relative;
+	left:20px;
+	top:20px;
+}
+.hrnewinput{
+	height:25px;
+}
+.hrnewinput1{
+	height:60px;
+}
+.hrnewimformationimg{
+	position:relative;
+	top: 30px;
+	left:90px;
+}
+.hrnewimformationbtn{
+	position:relative;
+	left:1250px;
+}
+.hrnewimformationbtn1{
+	position:relative;
+	left:1315px;
+	bottom:48px;
+}
+.hrnewimformationmy3{
+	background:#00B0F0;
+}
+.Ss1{
+	border:1px solid #686868;
+}
+.hraddimformationmoni1{
+	height:100px;
+	font-size:100px;
+	position:relative;
+	top:20px;
+	left:40px;
+}
+.hraddimformationmoni12{
+	height:100px;
+	font-size:100px;
+	position:relative;
+	top:20px;
+	left:70px;
+}
+.hraddimformationmoni13{
+	height:100px;
+	font-size:100px;
+	position:relative;
+	top:20px;
+	left:90px;
+}
+.hraddimformationmoni2{
+	font-weight:bolder;
+	color:#ffffff;
+	position:relative;
+	top:65px;
+	right:182px;
+}
+.hraddimformationmoni22{
+	font-weight:bolder;
+	color:#ffffff;
+	position:relative;
+		top:65px;
+	right:72px;
+}
+.hraddimformationmoni23{
+	font-weight:bolder;
+	color:#ffffff;
+	position:relative;
+			top:65px;
+	right:-30px;
+}
+.hraddimformationmoni3{
+	font-weight:bolder;
+	position:relative;
+	top:130px;
+	right:213px;
+}
+.hraddimformationmoni32{
+	font-weight:bolder;
+	position:relative;
+	top:130px;
+	right:120px;
+}
+.hraddimformationmoni33{
+	font-weight:bolder;
+	position:relative;
+	top:130px;
+	right:38px;
+}
+.hraddimformationtile{
+	width:170px !important;
+	height:150px !important;
+}
+.hraddimformationtilecontent{
+	position:relative;
+	bottom:23px;
+	left:35px;
+}
+.hraddimformationtilecontent1{
+	position:relative;
+	left:40px;
+}
+.hrnewimformationmy3icon{
+	color:#ffffff;
+	font-size:80px;
+	position:relative;
+	left:54px;
+	top:23px;
+}
+.hrnewimformationmy3text{
+	color:#ffffff;
+	font-weight:bold;
+	position:relative;
+	top:26px;
+	left:65px;
+}
+.hrevaluate{
+	width:350px !important;
+	height:40px;
+	position:relative;
+	bottom:3px;
+	left:20px;
+}
+.hrevaluate2{
+	font-weight:bold;
+	position:relative;
+	top:20px;
+	left:90px;
+}
+.hrmanagement1{
+	position:relative;
+	left:15px;
+	top:15px;
+	font-weight:bold;
+}
+.hrmanagement2{
+	position:relative;
+	left:15px;
+	top:40px;
+}
+.hrmanagement3{
+	color:green;
+	font-size:30px;
+	position:relative;
+	left:20px;
+	top:40px;
+}
+.hrmanagement4{
+	color:green;
+	position:relative;
+	left:60px;
+	top:15px;
+}
+.hrmanagement5{
+	position:relative;
+	left:400px;
+
+}
+.hrmanagement6{
+	position:relative;
+	left:395px;
+}
+.hrDialogS{
+	background:#eeeeeeb2;
+	border-right:0.5px solid #b6b6b6;
+}
+.hrDialogSR{
+	border-right:0.5px solid #b6b6b6;
+}

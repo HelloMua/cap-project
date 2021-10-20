@@ -1,0 +1,458 @@
+.hcollsubtask .sapMImg{
+	position:relative;
+	bottom:15px;
+	left:375px;
+}
+.collicon{
+	width:25px;
+	position:relative;
+	left:5px;
+	top:9px;
+}
+.collicon1{
+	width:30px;
+	position:relative;
+	left:8px;
+	top:13px;
+}
+.collside1{
+	position:relative;
+	top:3px;
+}
+.collside2{
+	position:relative;
+	top:3px;
+	left:7px;
+}
+.collsided12{
+	background:#E6E6E6;
+}
+.colltext1{
+	position: relative;
+    bottom: 22px;
+    left: 45px;
+    font-weight:bold;
+}
+.colltext2{
+	position: relative;
+    bottom: 25px;
+    left: 45px;
+}
+.colltext {
+    position: relative;
+    bottom: 22px;
+    left: 23px;
+}
+.collb{
+	position:relative;
+	bottom:49px;
+	left:1150px;
+	height:30px;
+}
+.collb .sapMBtnInner{
+	height:30px;
+}
+.collb .sapMBtnContent{
+	line-height: 1.5rem;
+}
+.collsided{
+	background:#496B8A;
+}
+.collsided .sapMText{
+	color:#ffffff;
+	margin:7px 0px 0px 10px;
+	font-weight:bold;
+}
+
+.hcolltitle{
+	background-color:#2F3C48;
+}
+.hcolltitle .sapMText{
+	color:#ffffff;
+	margin:7px 0px 0px 10px;
+	font-weight:bold;
+}
+
+.hcolltask{
+	background:#496B8A;
+	text-align:center;
+}
+.hcolltask .sapMText{
+	color:#ffffff;
+	margin:7px 0px 0px 0px;
+	font-weight:bold;
+}
+.hcolltasknum{
+	background:#7F7F7F;
+	text-align:center;
+}
+.hcolltasknum .sapMText{
+	color:#ffffff;
+	margin:7px 0px 0px 0px;
+	font-weight:bold;
+}
+.hcollsubtask{
+	background:#E6E6E6;
+	text-align:left;
+}
+.hcollsubtaskk{
+	text-align:left;
+}
+.hcollsubtaskk .sapMText{
+	color:#000000;
+	margin:7px 0px 0px 2px;
+	font-weight:bold;
+}
+.hcollsubtask .sapMText{
+	color:#000000;
+	margin:7px 0px 0px 2px;
+	font-weight:bold;
+}
+.hcollsubtask1{
+	background:#ffffff;
+	margin:0px 1px 1px 1px;
+}
+.hcollsubtask123{
+	background:#ffffff;
+	border: 3px solid #496B8A;
+}
+.collchatimage{
+	margin-top:19px;
+	width:75px;
+	height:75px;
+}
+.collchattext{
+	position:relative;
+	top:10px;
+	left:18px;
+}
+.hcollsubtask11{
+	background:#ffffff;
+	margin:0px 1px 1px 1px;
+}
+.hcollsubtask11 .sapMImg{
+	width:320px;
+	height:120px;
+}
+
+.collsideb{
+	position:relative;
+	bottom:59.5px;
+	left:200px;
+	height:30px;
+}
+.collsideb .sapMBtnInner{
+	height:30px;
+}
+.collsideb .sapMBtnContent {
+    line-height: 1.7rem;
+}
+.collsideg{
+	position:relative;
+	bottom:89.2px;
+	left:260px;
+	height:30px;
+}
+.collsideg .sapMBtnInner{
+	height:30px;
+}
+.collsideg .sapMBtnContent {
+    line-height: 1.7rem;
+}
+
+.collsideb1{
+	position:relative;
+	bottom:59.5px;
+	left:125px;
+	height:30px;
+}
+.collsideb1 .sapMBtnInner{
+	height:30px;
+}
+.collsideb1 .sapMBtnContent {
+    line-height: 1.7rem;
+}
+.collsideg1{
+	position:relative;
+	bottom:89.2px;
+	left:218px;
+	height:30px;
+}
+.collsideg1 .sapMBtnInner{
+	height:30px;
+}
+.collsideg1 .sapMBtnContent {
+    line-height: 1.7rem;
+}
+
+
+
+
+.hcollchatpeo {
+	font-weight:bold;
+	margin:15px 0px 0px 10px;
+	
+}
+.hcollchat{
+	background:#ffffff;
+	border:3px solid #2f3c48;
+}
+.hcollchat .sapMText{
+	margin: 10px 0px 0px 10px;
+}
+.hcollchatw1{
+	font-weight:bold;
+	position:relative;
+	top:15px;
+	left:5px;
+}
+.hcollchatw11{
+	position:relative;
+	bottom : 13px;
+	left:60px;
+}
+.hcollchatw2{
+	font-weight:bold;
+		position:relative;
+	bottom : 15px;
+	left:5px;
+}
+.hcollchatw22{
+	position:relative;
+	bottom : 43px;
+	left:65px;
+}
+.hcollchatw3{
+	font-weight:bold;
+			position:relative;
+	bottom : 45px;
+	left:5px;
+}
+.hcollchatw33{
+	position:relative;
+	bottom : 73px;
+	left:65px;
+}
+.hcollchatw4{
+	font-weight:bold;
+			position:relative;
+	bottom : 75px;
+	left:5px;
+}
+.hcollchatw44{
+	position:relative;
+	bottom : 103px;
+	left:65px;
+}
+.hcollchatw5{
+	font-weight:bold;
+			position:relative;
+	bottom : 105px;
+	left: 5px;
+}
+.hcollchatw55{
+	position:relative;
+	bottom : 133px;
+	left:65px;
+}
+.hcolldown{
+	background:#DCDCDC;
+}
+.hcolldown1{
+	background:#ffffff;
+	margin: 0px 7px 7px 7px;
+}
+.hcolldown .sapMText{
+	margin :15px 0px 0px 15px;
+}
+.hcollsubtext{
+	
+	position:relative;
+	bottom: 32px;
+	left:20px;
+}
+.hcolltime{
+	width:100%;
+	height:190px;
+}
+.hcollgray{
+	background:#A6A6A6;
+	position:relative;
+	bottom:4px;
+	right:0.5px;
+	width:100.5%;
+}
+.hcollborder{
+	border:2px solid #000000;
+}
+.hcollgray .sapMBtnInner{
+	height:25px;
+	width:20px;
+
+}
+.hcollcir .sapMBtnIcon{
+	line-height:1.5rem;
+	color:#ffffff !important;
+	position:relative;
+
+}
+.hcollcir{
+	width:10px;
+	height:10px;
+	position:relative;
+	top:3px;
+	left:70px;
+}
+.hcollcir1{
+	width:10px;
+	height:10px;
+	position:relative;
+	bottom:15px;
+	left:110px;
+}
+.hcollcir1 .sapMBtnIcon{
+	line-height:1.5rem;
+	color:#FFC000 !important;
+}
+.hcollcir2{
+	width:10px;
+	height:10px;
+		position:relative;
+	bottom:33px;
+	left:150px;
+}
+.hcollcir2 .sapMBtnIcon{
+	line-height:1.5rem;
+	color:#6B6BCF !important;
+}
+.hcollcir3{
+	width:10px;
+	height:10px;
+		position:relative;
+	bottom:51px;
+	left:190px;
+}
+.hcollcir3 .sapMBtnIcon{
+	line-height:1.5rem;
+	color:#3C8C93 !important;
+}
+.hcollcir4 .sapMBtnIcon{
+	line-height:1.5rem;
+	color:#C00000 !important;
+	position:relative;
+
+}
+.hcollcir4{
+	width:10px;
+	height:10px;
+	position:relative;
+	left:200px;
+	bottom:4px;
+}
+.hcollcir5{
+	width:10px;
+	height:10px;
+	position:relative;
+	bottom:22.5px;
+	left:240px;
+}
+.hcollcir5 .sapMBtnIcon{
+	line-height:1.5rem;
+	color:#6B6BCF !important;
+}
+.hcoll2{
+	width:300px;
+	height:100px;
+}
+.hcoll1 {
+	height:110px;
+}
+.hcoll3{
+	width:25px;
+}
+.hcollperson{
+	height:45px;
+	margin : 7px 0px 0px 9px;
+}
+.hcollname{
+	font-weight:bold;
+	position:relative;
+	bottom:45px;
+	left: 60px;
+}
+.hcolldep{
+		position:relative;
+	bottom:45px;
+	left: 60px;
+	color:#969696;
+}
+.hcolltemp{
+	text-align:center;
+}
+.hcollcon{
+	text-align:center;
+	font-weight:bold;
+	position:relative;
+	top:8px;
+}
+.hcollcon1{
+	text-align:center;
+	font-weight:bold;
+	color:red;
+	position:relative;
+	top:8px;
+}
+.hcolldate{
+	color:#969696;
+	position:relative;
+	top:15px;
+	left:90px;
+}
+.hcolldate1{
+	color:#969696;
+	position:relative;
+	top:35px;
+	left:85px;
+}
+.hcolldate3{
+	color:#969696;
+	position:relative;
+	top:15px;
+	left:83px;
+}
+.hcolldowntexttest{
+	background:#F0475E;
+	width:230px;
+	color:#ffffff;
+	text-align:center;
+}
+.hcolldowntexttest1{
+	background:#FEC111;
+	width:230px;
+	color:#ffffff;
+	text-align:center;
+}
+.hcolldowntexttest2{
+	background:#92D050;
+	width:230px;
+	color:#ffffff;
+	text-align:center;
+}
+.hcolldowntexttest3{
+	background:#7575D1;
+	width:230px;
+	color:#ffffff;
+	text-align:center;
+}
+
+.hcollimgtemp{
+	height:38px;
+	width:100%;
+}
+.hcolldown .sapMImg
+{
+	height:25px;
+	position :relative;
+	bottom:23px;
+	left:247px;
+}

@@ -1,0 +1,373 @@
+.b111{
+    height:40px;
+    background-color: #D9D9D9;
+}
+.b11111{
+    height:85px;
+    background-color: #D9D9D9;
+}
+.procurementcombo{
+    position:relative;
+    top:0px;
+    left:320px;
+}
+.procurementcombo2{
+    position:relative;
+    top:7px;
+    left:320px;
+}
+.b111111{
+    position:relative;
+    right:10px;
+    height:60px;
+    background-color: #D9D9D9;
+}
+.po11{
+	width:300px;
+	position:relative;
+	bottom:170px;
+	left:300px;
+	font-weight:bold;
+}
+.po123{
+	position:relative;
+}
+.po1231{
+	position:relative;
+	top:5px;
+}
+.po1232{
+	position:relative;
+	top:10px;
+}
+.po1233{
+	position:relative;
+	left:170px;
+	bottom:55px;
+}
+.po1234{
+	position:relative;
+	left:170px;
+	bottom:50px;
+}
+.po1235{
+	position:relative;
+	left:170px;
+	bottom:45px;
+}
+.b11{
+	height:40px;
+	background:#496B8A;
+}
+.b11i{
+	height:25px;
+	position:relative;
+	top:5px;
+	left:5px;
+}
+.b11t{
+	position:relative;
+	left:34px;
+	bottom:20px;
+	color:#ffffff;
+}
+.b11b{
+	position:relative;
+	left:480px;
+	bottom:48px;
+		height:30px;
+}
+.b11b .sapMBtnInner{
+	height:30px;
+}
+.b11b .sapMBtnContent{
+	line-height:1.5rem;
+}
+.b22{
+	height:40px;
+	background:#496B8A;
+}
+.b22i{
+	height:25px;
+	position:relative;
+	top:5px;
+	left:5px;
+}
+.b22t{
+	position:relative;
+	left:34px;
+	bottom:20px;
+	color:#ffffff;
+}
+.b22b{
+	position:relative;
+	left:480px;
+	bottom:48px;
+		height:30px;
+}
+.b22b .sapMBtnInner{
+	height:30px;
+}
+.b22b .sapMBtnContent{
+	line-height:1.5rem;
+}
+
+.po1tiledown{
+	background:#496B8A;
+	opacity : 0.8;
+	width:96%;
+	position:relative;
+	bottom:62px;
+	left:1px;
+	height:370px;
+}
+.po1tiledown .sapMTitle{
+	color:#ffffff;
+	position:relative;
+	left:220px;
+	bottom:15px;
+}
+.po1tiledown .sapMImg{
+	color:#ffffff;
+	position:relative;
+	left:175px;
+	top:17px;
+}
+
+.po1tiledown1{
+
+	position:relative;
+	bottom:80px;
+	left:40px;
+	height:40px;
+}
+
+.po1tiledown1 .sapMImg{
+	width:40px;
+	color:#ffffff;
+	position:relative;
+	left:40px;
+	top:40px;
+}
+.po1tiledown2{
+    height:40px;
+	position:relative;
+	bottom:93px;
+	left:40px;
+}
+
+.po1tiledown2 .sapMImg{
+	width:40px;
+	color:#ffffff;
+	position:relative;
+	left:40px;
+	top:50px;
+}
+.potiledown11{
+	color:#ffffff;
+	position:relative;
+	left:85px;
+	top:-130px;
+	height:20px;
+}
+.potiledown12{
+	color:#ffffff;
+	position:relative;
+	left:85px;
+	bottom:140px;
+	height:20px;
+}
+.po1tiledown3{
+	background:#536893;
+	text-align:center;
+	width:96.1%;
+	position:relative;
+	bottom:260px;
+	left:1px;
+	height:70px;
+}
+.po1tiledown4{
+	background:#ffffff;
+	text-align:center;
+	width:96.1%;
+	position:relative;
+	bottom:198px;
+	left:1px;
+	height:250px;
+}
+.potiledown31{
+	color:#ffffff;
+	height:42px;
+	position:relative;
+	top:15px;
+}
+.potiledown41{
+	color:#613814;
+	height:42px;
+	position:relative;
+	top:15px;
+	font-size:20px;
+	font-weight:bold;
+}
+.potiledown42{
+	color:#613814;
+	height:42px;
+	position:relative;
+	top:7px;
+	font-size:20px;
+	font-weight:bold;
+}
+.wtf{
+	border:1px solid #000000;
+}
+.poicon{
+	width:28px;
+	position:relative;
+	left:4px;
+	top:8px;
+}
+.potext{
+	position:relative;
+	bottom:28.5px;
+	left:35px;
+	color: #ffffff;
+}
+.gapno{
+    position:relative;
+    bottom: 10px;
+}
+.tileLayout{
+	width:310px !important;
+	height:258px !important;
+}
+.tileLayout3{
+	width:310px !important;
+	height:129px !important;
+}
+.tileLayout1{
+	width:630px !important;
+	height:258px !important;
+}
+.potitle{
+	background-color :#2F3C48;
+	margin : 10px 15px 10px 15px;	
+}
+
+.potitle .sapMText{
+	margin:10px 0px 0px 5px;
+	color:#ffffff;
+	font-weight:bold;
+}
+/* Enter your custom styles here */
+.pur1{
+	background-color: #17C4EF
+}
+.POimg .sapMImg{
+	width:370px;
+	height:258px;
+}
+.POimg2 .sapMImg{
+
+	width:370px;
+    height:129px;
+
+}
+
+.a1{
+	grid-column:1/4;
+	grid-row   :1;
+	border : 0.3px solid #000000;
+}
+.b1{
+	grid-column:1;
+	grid-row   :1;
+	border : 1px solid #496B8A;
+	align-content: center;
+}
+.b2{
+	grid-column:2;
+	grid-row   :1/3;
+	border : 1px solid #496B8A;
+}
+.b3{
+	grid-column:3;
+	grid-row   :1;
+	border : 1px solid #496B8A;
+}
+.c1{
+	grid-column:1;
+	grid-row   :2/4;
+	border : 1px solid #496B8A;
+}
+.c2{
+	grid-column:2;
+	grid-row   :3;
+	border : 1px solid #496B8A;
+}
+.c3{
+	grid-column:3;
+	grid-row   :2/4;
+	border : 1px solid #496B8A;
+}
+.c22{
+	position:relative;
+	left:10px;
+}
+.underinput1{
+	position:relative;
+	left: 31px;
+}
+.underinput1text{
+	position:relative;
+	right: -16px;
+}
+
+.underinput2{
+	position:relative;
+	left:60px;
+}
+.underinput2text{
+	position:relative;
+	left: 50px;
+}
+.ProcureButton{
+	position: relative;
+	left: 750px;
+}
+.Monitoring{
+	background-color: #ff0000;
+	border : 0.3px solid #ff0000;
+}
+.Monitoring1{
+	text-align: center;
+	font-size: larger;
+}
+.Monitoring2{
+	position: relative;
+	top: 10px;
+	 text-decoration: underline;
+}
+.MonitoringHorizon{
+	position: relative;
+	top: 40px;
+	left: 15px;
+}
+.MonitoringVertical{
+	position: relative;
+	left: 100px;
+}
+.hpoimage{
+	width:100px;
+	height:200px;
+}
+.PONav{
+	height: 100%;
+}
+.PO99{
+	bottom:260px;
+	height:250px;
+}
+.tileLayout4{
+	width:960px !important;
+	height:258px !important;
+}

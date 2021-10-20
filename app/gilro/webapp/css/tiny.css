@@ -1,0 +1,24 @@
+.purchaseheadi{
+	width:25px;
+	height:25px;
+	position:relative;
+	top:2px;
+	right:0px
+}
+.purchaseheadt{
+	position:relative;
+	top:10px;
+	right:3px;
+	color:#ffffff;
+	font-weight:bold;
+}
+.mmtitle{
+	background:#2F3C48;
+}
+.swgnew{
+	position:relative;
+	bottom:12px;
+}
+.workplacesettingchild .sapMTreeItemBaseChildren{
+    background-color: #ffffff !important;
+}
