@@ -74,7 +74,7 @@
             <Table 
                 id="table" 
                 items="{
-                    path: 'products>/'
+                    path: 'BooksSelect>/'
                 }">
                 <headerToolbar>
                     <OverflowToolbar>
@@ -115,16 +115,16 @@
                 <items>
                     <ColumnListItem type="Navigation" press=".onRoutePage">
                         <cells>
-                            <!-- <Text text="{}" />
-                            <Text text="{}" />
-                            <Text text="{}" />
-                            <Text text="{}" />
-                            <Text text="{}" /> -->
+                            <Text text="{BooksSelect>ID}" />
+                            <Text text="{BooksSelect>author}" />
+                            <Text text="{BooksSelect>author_ID}" />
+                            <Text text="{BooksSelect>stock}" />
+                            <Text text="{BooksSelect>title}" />
+                            <!-- <Text text="d" />
                             <Text text="d" />
                             <Text text="d" />
                             <Text text="d" />
-                            <Text text="d" />
-                            <Text text="d" />
+                            <Text text="d" /> -->
                         </cells>
                     </ColumnListItem>
                 </items>

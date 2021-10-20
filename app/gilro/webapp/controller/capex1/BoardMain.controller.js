@@ -19,6 +19,8 @@ sap.ui.define([
 
             var oViewModel = new JSONModel([]);
             this.getView().setModel(oViewModel, "products");
+
+            this._getBooksSelect();            
       
         },
 
@@ -73,7 +75,7 @@ sap.ui.define([
             })
         },
 
-        // BoardMain.view에서 Author 헬프 박스 버튼 눌렀을 때 실행
+        // 가져온 Authors 데이터를 BoardMain.view에서 Author 헬프 박스 버튼 눌렀을 때 나오게끔 실행
         handleTableSelectDialogPress: function () {
             var oAuthorModel = new JSONModel()
             this.getView().setModel(oAuthorModel, "AuthorsSelect");
@@ -101,6 +103,22 @@ sap.ui.define([
 
                 });
             });
+        },
+
+        // 테이블 검색 버튼
+        onSearch: function () {
+            this._getBooksSelect();
+        },
+
+        // Books 데이터 가져오기
+        _getBooksSelect: function () {
+            let BooksPath = "/catalog/Books"
+            this._getData(BooksPath).then((oData) => {
+                var oBooksModel = new JSONModel(oData.value)
+                console.log(oBooksModel);
+                this.getView().setModel(oBooksModel, "BooksSelect");
+            })
+
         }
 	});
 });
