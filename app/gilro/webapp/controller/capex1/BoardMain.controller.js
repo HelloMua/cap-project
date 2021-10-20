@@ -141,6 +141,7 @@ sap.ui.define([
                 this.getView().setModel(oBooksModel, "BooksSelect");
             })
 
+
             // let count = this.getView().getModel("BooksSelect").getProperty("/").length;
             // let booksList = "List" + " (" + count + ")";
 
@@ -150,7 +151,7 @@ sap.ui.define([
             // console.log(aIndices);
 
             // if (oBinding != undefined && oBinding.aIndices != undefined) {
-            //     this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+                // this.getView().getModel("co").setProperty("/count", count);
             // }
             // this.getView().getModel("BooksSelect").refresh(true);
             // this.getView().getModel("co").refresh(true);
@@ -277,6 +278,50 @@ sap.ui.define([
             // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
             if (oBinding != undefined && oBinding.aIndices != undefined) {
                 // 행의 갯수를 담는 로직
+                this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+            }
+        },
+
+        // InputBox 3개 동시 검색하기
+        onSearch: function () {
+            let idValue = this.getView().byId("id").getValue();
+            let authorValue = this.getView().byId("author").getValue();
+            let titleValue = this.getView().byId("title").getValue();
+
+            let oTable = this.byId("table"),
+                oBooksModel = this.getModel("BooksSelect");
+
+            // 검색바 입력에 맞는 조건들의 배열, InputBox가 3개이기 때문에 배열도 3개가 필요함
+            let aFilters = [],
+                aFilterSet = [],
+                aFilterSet2 = [];
+            
+            // 검색바 입력에 따라 조건 처리
+            let aIdFilter = [new Filter({path: "ID", operator: FilterOperator.Contains, value1: idValue, caseSensitive: false})];
+            let aAuthorFilter = [new Filter({path: "name", operator: FilterOperator.Contains, value1: authorValue, caseSensitive: false})];
+            let aTitleFilter = [new Filter({path: "title", operator: FilterOperator.Contains, value1: titleValue, caseSensitive: false})];
+        
+            let sText = this.byId("textId").getText();
+
+            // 여러 개의 검색조건 선택값에 따라 조건 처리
+            if (this.byId("textId").getText() === "ID") {
+                aFilters.push(new Filter({filters: aIdFilter}));
+            } else if (this.byId("textName").getText() === "author") {
+                aFilters.push(new Filter({filters: aAuthorFilter}));
+            } else if (this.byId("textTitle").getText() === "title") {
+                aFilters.push(new Filter({filters: aTitleFilter}));
+            }
+
+            oTable.getBinding("items").filter(aFilters);
+
+            // if (oTable.getBinding("items").length !== 0) {
+            //     oViewModel.setProperty("/tableNoDataText", "데이터가  없습니다.");
+            // }
+
+            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
+            let oBinding = this.byId("table").getBinding("items");
+
+            if (oBinding != undefined && oBinding.aIndices != undefined) {
                 this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
             }
         }
