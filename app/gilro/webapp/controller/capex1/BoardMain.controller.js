@@ -157,7 +157,7 @@ sap.ui.define([
         // Books 데이터 가져오기
         _getBooksSelect: function () {
             console.log("=========");
-            let BooksPath = "/catalog/Books"
+            let BooksPath = "/catalog/Books?$expand=author"
 
             this._getData(BooksPath).then((oData) => {
                 var oBooksModel = new JSONModel(oData.value)

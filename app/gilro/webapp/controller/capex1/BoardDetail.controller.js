@@ -123,7 +123,8 @@ sap.ui.define([
             },
 
             selectList: async function () {
-                let list = await this.select("/catalog/Books");
+                let list = await this.select("/catalog/Books?$expand=author");
+                console.log(list);
 
                 let aSelectedList = list.value;
                 let data;

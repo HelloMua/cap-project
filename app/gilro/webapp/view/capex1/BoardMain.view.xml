@@ -95,8 +95,8 @@
                     <ColumnListItem type="Navigation" press=".onRoutePage">
                         <cells>
                             <Text text="{BooksSelect>ID}" />
-                            <Text text="{BooksSelect>name}" />
-                            <Text text="{BooksSelect>author_ID}" />
+                            <Text text="{BooksSelect>author/name}" />
+                            <Text text="{BooksSelect>author/ID}" />
                             <Text text="{BooksSelect>stock}" />
                             <Text text="{BooksSelect>title}" />
                         </cells>
