@@ -20,26 +20,12 @@ sap.ui.define([
             console.clear();
             console.log(" === BoardMain onInit === ");
 
-            // keeps the search state
-            // this._aTableSearchState = [];
-
-            var oViewModel = new JSONModel([]);
-            this.getView().setModel(oViewModel, "products");
-
             // Books Entity의 데이터를 가져와서 JSON Model을 생성하고 담는다
             this.onSearch2();
             
             // 테이블의 개수를 담는 모델 생성
             const oCountModel = new JSONModel({count: 0});
             this.getView().setModel(oCountModel, "co");
-
-            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
-            // let oBinding = this.byId("table").getBinding("items");
-
-            // if (oBinding != undefined && oBinding.aIndices != undefined) {
-            //     this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
-            // }
-            // console.log(oBinding);
 
         },
 
@@ -54,15 +40,8 @@ sap.ui.define([
             this.getOwnerComponent().getRouter().navTo("BoardDetail", {
                 num: poNum
             });
-            console.log(num);
     
             this.getView().byId("page").setHeaderExpanded(false);
-        },
-
-        addRow: function () {
-            this.getView().getModel("products").getProperty("/").push({});
-            this.getView().getModel("products").refresh(true);
-     
         },
 
         // ajax를 사용하여 데이터 가져오기
@@ -177,7 +156,7 @@ sap.ui.define([
 
         // Books 데이터 가져오기
         _getBooksSelect: function () {
-            console.log("=======");
+            console.log("=========");
             let BooksPath = "/catalog/Books"
 
             this._getData(BooksPath).then((oData) => {
@@ -191,26 +170,6 @@ sap.ui.define([
                     this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
                 }
             })
-
-           
-
-            // let count = this.getView().getModel("BooksSelect").getProperty("/").length;
-            // let booksList = "List" + " (" + count + ")";
-
-            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
-            // let oBinding = this.byId("table").getBinding("items");
-            // let aIndices = this.getView().byId("table").getSelectedIndices();
-            // console.log(aIndices);
-
-            // if (oBinding != undefined && oBinding.aIndices != undefined) {
-                // this.getView().getModel("co").setProperty("/count", count);
-            // }
-            // this.getView().getModel("BooksSelect").refresh(true);
-            // this.getView().getModel("co").refresh(true);
-            // console.log(oBinding);
-            // this.getView().byId("tableHeader").mProperties["text"] = null;  //text 비워주기 (안 쓰면 안 됨)
-            // this.byId("tableHeader").setText(booksList);
-
         },
 
         // Input 초기화 버튼 클릭 시 실행

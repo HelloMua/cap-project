@@ -29,13 +29,13 @@ sap.ui.define([
                 this.getView().byId("editor").addContent(this.oEditor.oRichTextEditor);
 
                 // Books Entity의 데이터를 가져와서 JSON Model을 생성하고 담는다
-                let BooksPath = "/catalog/Books"
+                // let BooksPath = "/catalog/Books"
 
-                this._getData(BooksPath).then((oData) => {
-                    var oBooksModel = new JSONModel(oData.value)
-                    // console.log(oBooksModel);
-                    this.getView().setModel(oBooksModel, "BooksSelect");
-                }) 
+                // this._getData(BooksPath).then((oData) => {
+                //     var oBooksModel = new JSONModel(oData.value)
+                //     // console.log(oBooksModel);
+                //     this.getView().setModel(oBooksModel, "BooksSelect");
+                // }) 
 
             },
 
@@ -62,8 +62,7 @@ sap.ui.define([
                 this.byId("exitScreen").setVisible(false);
                 _data = this.getView().getModel("orDetailView");
                 _this = this;
-                _param = oEvent.getParameters("arguments").num;
-                console.log(oEvent.getParameters("arguments").num);
+                _param = oEvent.getParameter("arguments").num;
 
                 this.selectList();
             },
@@ -74,7 +73,7 @@ sap.ui.define([
                 this.byId("exitScreen").setVisible(true);
                 _data = this.getView().getModel("orDetailView");
                 _this = this;
-                _param = oEvent.getParameters("arguments").num;
+                _param = oEvent.getParameter("arguments").num;
 
                 this.selectList();
             },
@@ -125,7 +124,6 @@ sap.ui.define([
 
             selectList: async function () {
                 let list = await this.select("/catalog/Books");
-                // console.log(list);
 
                 let aSelectedList = list.value;
                 let data;
@@ -136,8 +134,6 @@ sap.ui.define([
                 }
                 
                 this.getView().setModel(new JSONModel(data), "detail");
-                // console.log(data);
-                // console.log(_param);
             },
 
             // 데이터 조회

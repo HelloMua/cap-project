@@ -60,7 +60,6 @@
                     <OverflowToolbar>
                         <Title id="tableHeader" text="List ({co>/count})" level="H2" />
                         <ToolbarSpacer />
-                        <Button text="Add" press=".addRow"/>
                         <Button id="excel" icon="sap-icon://excel-attachment" press=".onDataExport">
                             <layoutData>
                                 <OverflowToolbarLayoutData proirity="NeverOverflow" />
