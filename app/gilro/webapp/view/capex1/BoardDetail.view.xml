@@ -10,7 +10,7 @@
         <headerTitle>
             <ObjectPageDynamicHeaderTitle>
                 <heading>
-                    <m:Title text="도서번호: {detail>/books/0/ID}" wrapping="true" />
+                    <m:Title text="도서번호: {detail>/ID}" wrapping="true" />
                 </heading>
 
                 <navigationActions>
