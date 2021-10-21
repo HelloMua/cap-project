@@ -21,34 +21,30 @@ sap.ui.define([
             console.log(" === BoardMain onInit === ");
 
             // keeps the search state
-			this._aTableSearchState = [];
+            // this._aTableSearchState = [];
 
             var oViewModel = new JSONModel([]);
             this.getView().setModel(oViewModel, "products");
 
             // Books Entity의 데이터를 가져와서 JSON Model을 생성하고 담는다
-            this._getBooksSelect();     
+            this.onSearch2();
             
             // 테이블의 개수를 담는 모델 생성
             const oCountModel = new JSONModel({count: 0});
             this.getView().setModel(oCountModel, "co");
 
             // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
-            let oBinding = this.byId("table").getBinding("items");
-            // let aIndices = this.getView().byId("table").getSelectedIndices();
-            // console.log(aIndices);
+            // let oBinding = this.byId("table").getBinding("items");
 
-            if (oBinding != undefined && oBinding.aIndices != undefined) {
-                this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
-            }
+            // if (oBinding != undefined && oBinding.aIndices != undefined) {
+            //     this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+            // }
             // console.log(oBinding);
 
-            
-      
         },
 
         onBack: function () {
-            this.getOwnerComponent().getRouter().navTo("BoardMain");
+            this.getOwnerComponent().getRouter().navTo("Home");
         },
 
         // 상세 페이지 라우팅
@@ -56,9 +52,10 @@ sap.ui.define([
             var poNum = oEvent.getSource().getCells()[0].getText();
 
             this.getOwnerComponent().getRouter().navTo("BoardDetail", {
-                num : poNum
-            })
-
+                num: poNum
+            });
+            console.log(num);
+    
             this.getView().byId("page").setHeaderExpanded(false);
         },
 
@@ -173,20 +170,29 @@ sap.ui.define([
         // },
 
         // 테이블 검색 버튼
-        onSearch: function () {
+        onSearch2: function () {
+            console.log("+++++++++");
             this._getBooksSelect();
         },
 
         // Books 데이터 가져오기
         _getBooksSelect: function () {
+            console.log("=======");
             let BooksPath = "/catalog/Books"
 
             this._getData(BooksPath).then((oData) => {
                 var oBooksModel = new JSONModel(oData.value)
-                console.log(oBooksModel);
+                // console.log(oBooksModel);
                 this.getView().setModel(oBooksModel, "BooksSelect");
+
+                let oBinding = this.byId("table").getBinding("items");
+
+                if (oBinding != undefined && oBinding.aIndices != undefined) {
+                    this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+                }
             })
 
+           
 
             // let count = this.getView().getModel("BooksSelect").getProperty("/").length;
             // let booksList = "List" + " (" + count + ")";
@@ -214,22 +220,63 @@ sap.ui.define([
             this.getView().byId("title").setValue("");
         },
 
+        // InputBox 3개 동시 검색하기
+        onSearch: function () {
+            console.log("----------");
+            let idValue = this.getView().byId("id").getValue();
+            let authorValue = this.getView().byId("author").getValue();
+            let titleValue = this.getView().byId("title").getValue();
+
+            let oTable = this.byId("table");
+
+            // 검색바 입력에 맞는 조건들의 배열
+            this._aTableSearchState  = [];
+            
+            // 검색바 입력에 따라 조건 처리
+            let aIdFilter = [new Filter({path: "ID", operator: FilterOperator.Contains, value1: idValue, caseSensitive: false})];
+            let aAuthorFilter = [new Filter({path: "name", operator: FilterOperator.Contains, value1: authorValue, caseSensitive: false})];
+            let aTitleFilter = [new Filter({path: "title", operator: FilterOperator.Contains, value1: titleValue, caseSensitive: false})];
+
+            // 여러 개의 검색조건 선택값에 따라 조건 처리
+            this._aTableSearchState.push(new Filter({filters: aIdFilter}));
+            this._aTableSearchState.push(new Filter({filters: aAuthorFilter}));
+            this._aTableSearchState.push(new Filter({filters: aTitleFilter}));
+
+            oTable.getBinding("items").filter(this._aTableSearchState);
+
+            // if (oTable.getBinding("items").length !== 0) {
+            //     oViewModel.setProperty("/tableNoDataText", "데이터가  없습니다.");
+            // }
+
+            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
+            let oBinding = this.byId("table").getBinding("items");
+
+            if (oBinding != undefined && oBinding.aIndices != undefined) {
+                this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
+            }
+
+            // this.getView().setModel(oBooksModel, "BooksSelect");
+            
+        },
+
         // Excel 파일 생성
         onDataExport: function () {
             // console.log(this.byId("Table").getBinding("items"));
 
             if (this.byId("table").getBinding("items") === undefined) {
                 MessageBox.alert("리스트를 먼저 조회해주세요.");
+                this.byId("excel").setBlocked(false);
                 return;
             }
 
             let aCols, oRowBinding, oSettings, oSheet, oTable;
     
-            if (!this._oTable) {
-                this._oTable = this.byId("table");
+            if (!this.oTable) {
+                this.oTable = this.byId("table");
             }
 
-            oTable = this._oTable;
+            oTable = this.oTable;
+            // console.log(oTable);
             oRowBinding = oTable.getBinding("items");
             aCols = this.createColumnConfig();
 
@@ -325,41 +372,6 @@ sap.ui.define([
             // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
             if (oBinding != undefined && oBinding.aIndices != undefined) {
                 // 행의 갯수를 담는 로직
-                this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
-            }
-        },
-
-        // InputBox 3개 동시 검색하기
-        onSearch: function () {
-            let idValue = this.getView().byId("id").getValue();
-            let authorValue = this.getView().byId("author").getValue();
-            let titleValue = this.getView().byId("title").getValue();
-
-            let oTable = this.byId("table");
-
-            // 검색바 입력에 맞는 조건들의 배열, InputBox가 3개이기 때문에 배열도 3개가 필요함
-            let aTableSearchState  = [];
-            
-            // 검색바 입력에 따라 조건 처리
-            let aIdFilter = [new Filter({path: "ID", operator: FilterOperator.Contains, value1: idValue, caseSensitive: false})];
-            let aAuthorFilter = [new Filter({path: "name", operator: FilterOperator.Contains, value1: authorValue, caseSensitive: false})];
-            let aTitleFilter = [new Filter({path: "title", operator: FilterOperator.Contains, value1: titleValue, caseSensitive: false})];
-
-            // 여러 개의 검색조건 선택값에 따라 조건 처리
-            aTableSearchState.push(new Filter({filters: aIdFilter}));
-            aTableSearchState.push(new Filter({filters: aAuthorFilter}));
-            aTableSearchState.push(new Filter({filters: aTitleFilter}));
-
-            oTable.getBinding("items").filter(aTableSearchState );
-
-            // if (oTable.getBinding("items").length !== 0) {
-            //     oViewModel.setProperty("/tableNoDataText", "데이터가  없습니다.");
-            // }
-
-            // 테이블의 개수를 가져와서 JSJON Model에 넣어주기
-            let oBinding = this.byId("table").getBinding("items");
-
-            if (oBinding != undefined && oBinding.aIndices != undefined) {
                 this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
             }
         }

@@ -10,15 +10,15 @@
         <headerTitle>
             <ObjectPageDynamicHeaderTitle>
                 <heading>
-                    <m:Title text="도서번호: {}" wrapping="true" />
+                    <m:Title text="도서번호: {detail>/ID}" wrapping="true" />
                 </heading>
-            </ObjectPageDynamicHeaderTitle>
 
-            <!-- <navigationActions>
-                <m:OverflowToolbarButton id="fullScreen" icon="sap-icon://full-screen" press=".onFull" tooltip="스크린 확장" />
-                <m:OverflowToolbarButton id="exitScreen" icon="sap-icon://exit-full-screen" press=".onExitFull" tooltip="스크린 축소" />
-                <m:OverflowToolbarButton icon="sap-icon://declinen" press=".onBack" tooltip="돌아가기" />
-            </navigationActions> -->
+                <navigationActions>
+                    <m:OverflowToolbarButton id="fullScreen" icon="sap-icon://full-screen" press=".onFull" type="Transparent" tooltip="스크린 확장" />
+                    <m:OverflowToolbarButton id="exitScreen" icon="sap-icon://exit-full-screen" press=".onExitFull" type="Transparent" tooltip="스크린 축소" />
+                    <m:OverflowToolbarButton icon="sap-icon://decline" press=".onBack" type="Transparent" tooltip="돌아가기" />
+                </navigationActions>
+            </ObjectPageDynamicHeaderTitle>
         </headerTitle>
 
         <headerContent>
@@ -31,11 +31,11 @@
                         <form:SimpleForm>
                             <m:VBox>
                                 <m:Label text="title :" />
-                                <m:Text text="{}" />
+                                <m:Text text="{detail>/title}" />
                             </m:VBox>
                             <m:VBox>
                                 <m:Label text="stock :" />
-                                <m:Text text="{}" />
+                                <m:Text text="{detail>/stock}" />
                             </m:VBox>
                         </form:SimpleForm>
                     </ObjectPageSubSection>
@@ -48,11 +48,11 @@
                         <form:SimpleForm>
                             <m:VBox>
                                 <m:Label text="author_ID :" />
-                                <m:Text text="{}" />
+                                <m:Text text="{detail>/author_ID}" />
                             </m:VBox>
                             <m:VBox>
                                 <m:Label text="author_name :" />
-                                <m:Text text="{}" />
+                                <m:Text text="{detail>/name}" />
                             </m:VBox>
                         </form:SimpleForm>
                     </ObjectPageSubSection>
