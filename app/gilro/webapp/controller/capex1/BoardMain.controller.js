@@ -20,6 +20,9 @@ sap.ui.define([
             console.clear();
             console.log(" === BoardMain onInit === ");
 
+            // keeps the search state
+			this._aTableSearchState = [];
+
             var oViewModel = new JSONModel([]);
             this.getView().setModel(oViewModel, "products");
 
@@ -55,6 +58,8 @@ sap.ui.define([
             this.getOwnerComponent().getRouter().navTo("BoardDetail", {
                 num : poNum
             })
+
+            this.getView().byId("page").setHeaderExpanded(false);
         },
 
         addRow: function () {
@@ -81,8 +86,30 @@ sap.ui.define([
         },
 
         // Dialog에서 Search Button 눌렀을 때 실행
-        onSearchAuthors : function () {
-            this._getAuthorsSelect();
+        onSearchAuthors : function (oEvent) {
+            let searchField = this.byId("AuthorsSearch").getValue();
+            // console.log(searchField);
+
+            if (searchField === undefined || searchField === "") {
+                // 서치필드에 빈 값을 입력했을 때 전체 데이터가 나오게 함
+                this._getAuthorsSelect();
+            } else {
+                // 서치필드에 입력한 값에 해당하는 데이터만 나오게 함
+                var aFilters = [];
+                var sQuery = oEvent.getSource().getValue();
+
+                if (sQuery && sQuery.length > 0) {
+                    var filter = new Filter("name", FilterOperator.Contains, sQuery);
+                    aFilters.push(filter);
+                }
+
+                // update list binding
+                var oTable = this.byId("AuthorsSelectTable");
+                var oBinding = oTable.getBinding("items");
+                oBinding.filter(aFilters);
+                // console.log(oBinding);
+            }
+
         },
 
         // Authors 데이터 가져오기 
@@ -96,11 +123,12 @@ sap.ui.define([
             })
         },
 
-        // 가져온 Authors 데이터를 BoardMain.view에서 Author 헬프 박스 버튼 눌렀을 때 나오게끔 실행
-        handleTableSelectDialogPress: function () {
+        // 가져온 Authors 데이터를 InputBox안에 넣고 오른쪽 네모두개모양 버튼 누르면 다이얼로그 창 생성
+        handleTableSelectDialogPress: function (oEvent) {
             var oAuthorModel = new JSONModel()
             this.getView().setModel(oAuthorModel, "AuthorsSelect");
-            this.onAuthorDialogOpen("AuthorsSelect")
+
+            this.onAuthorDialogOpen("AuthorsSelect");
         },
 
         //다이얼로그 창 생성
@@ -125,6 +153,24 @@ sap.ui.define([
                 });
             });
         },
+
+        // onLiveChange: function (oEvent) {
+        //     // add filter for search
+        //     var aFilters = [];
+        //     var sQuery = oEvent.getSource().getValue();
+
+        //     if (sQuery && sQuery.length > 0) {
+        //         var filter = new Filter("name", FilterOperator.Contains, sQuery);
+        //         aFilters.push(filter);
+        //     }
+
+        //     // update list binding
+        //     var oTable = this.byId("AuthorsSelectTable");
+        //     var oBinding = oTable.getBinding("items");
+        //     oBinding.filter(aFilters);
+        //     console.log(oBinding);
+            
+        // },
 
         // 테이블 검색 버튼
         onSearch: function () {
@@ -171,6 +217,7 @@ sap.ui.define([
         // Excel 파일 생성
         onDataExport: function () {
             // console.log(this.byId("Table").getBinding("items"));
+
             if (this.byId("table").getBinding("items") === undefined) {
                 MessageBox.alert("리스트를 먼저 조회해주세요.");
                 return;
@@ -288,31 +335,22 @@ sap.ui.define([
             let authorValue = this.getView().byId("author").getValue();
             let titleValue = this.getView().byId("title").getValue();
 
-            let oTable = this.byId("table"),
-                oBooksModel = this.getModel("BooksSelect");
+            let oTable = this.byId("table");
 
             // 검색바 입력에 맞는 조건들의 배열, InputBox가 3개이기 때문에 배열도 3개가 필요함
-            let aFilters = [],
-                aFilterSet = [],
-                aFilterSet2 = [];
+            let aTableSearchState  = [];
             
             // 검색바 입력에 따라 조건 처리
             let aIdFilter = [new Filter({path: "ID", operator: FilterOperator.Contains, value1: idValue, caseSensitive: false})];
             let aAuthorFilter = [new Filter({path: "name", operator: FilterOperator.Contains, value1: authorValue, caseSensitive: false})];
             let aTitleFilter = [new Filter({path: "title", operator: FilterOperator.Contains, value1: titleValue, caseSensitive: false})];
-        
-            let sText = this.byId("textId").getText();
 
             // 여러 개의 검색조건 선택값에 따라 조건 처리
-            if (this.byId("textId").getText() === "ID") {
-                aFilters.push(new Filter({filters: aIdFilter}));
-            } else if (this.byId("textName").getText() === "author") {
-                aFilters.push(new Filter({filters: aAuthorFilter}));
-            } else if (this.byId("textTitle").getText() === "title") {
-                aFilters.push(new Filter({filters: aTitleFilter}));
-            }
+            aTableSearchState.push(new Filter({filters: aIdFilter}));
+            aTableSearchState.push(new Filter({filters: aAuthorFilter}));
+            aTableSearchState.push(new Filter({filters: aTitleFilter}));
 
-            oTable.getBinding("items").filter(aFilters);
+            oTable.getBinding("items").filter(aTableSearchState );
 
             // if (oTable.getBinding("items").length !== 0) {
             //     oViewModel.setProperty("/tableNoDataText", "데이터가  없습니다.");

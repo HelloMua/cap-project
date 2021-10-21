@@ -52,11 +52,11 @@
                         </VBox>
                         <VBox width="auto">
                             <Label text="Author : " ></Label>
-                            <Input id="author" valueHelpOnly="false" showValueHelp="true" valueHelpRequest=".handleTableSelectDialogPress"/>
+                            <Input id="author" valueHelpOnly="false" showValueHelp="true" valueHelpRequest=".handleTableSelectDialogPress" width="95%"/>
                         </VBox>
                         <VBox width="auto">
                             <Label text="Title : " labelFor="P_company"></Label>
-                            <Input id="title" />
+                            <Input id="title" width="95%" />
                         </VBox>
                         <HBox justifyContent="End">
                             <Button text="검색" type="Emphasized" press=".onSearch"/>
@@ -96,10 +96,10 @@
 
                 <columns>
                     <Column>
-                        <Text text="ID" />
+                        <Text id="textId" text="ID" />
                     </Column>
                     <Column>
-                        <Text text="author" />
+                        <Text id="textName" text="author" />
                     </Column>
                     <Column>
                         <Text text="author_ID" />
@@ -108,7 +108,7 @@
                         <Text text="stock" />
                     </Column>
                     <Column>
-                        <Text text="title" />
+                        <Text id="textTitle" text="title" />
                     </Column>
                 </columns>
 

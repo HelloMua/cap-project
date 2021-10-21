@@ -8,7 +8,7 @@
         contentHeight="30rem"
         contentWidth="40rem">
         <content>
-            <SearchField id="AuthorsSearch" class="sapUiTinyMarginBeginEnd" placeholder="검색" search=".onSearchAuthors" width="95%" />
+            <SearchField id="AuthorsSearch" class="sapUiTinyMarginBeginEnd" placeholder="검색" search=".onSearchAuthors" liveChange=".onLiveChange" width="95%" />
             <Table
                 id="AuthorsSelectTable"
                 mode="SingleSelectLeft"
@@ -30,7 +30,7 @@
                     </Column>
                     <Column width="auto">
                         <header>
-                            <Text text="name" />   
+                            <Text id="name" text="name" />   
                         </header>
                     </Column>
                 </columns>
