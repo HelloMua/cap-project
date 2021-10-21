@@ -193,7 +193,7 @@ sap.ui.define([
             
             // 검색바 입력에 따라 조건 처리
             let aIdFilter = [new Filter({path: "ID", operator: FilterOperator.Contains, value1: idValue, caseSensitive: false})];
-            let aAuthorFilter = [new Filter({path: "name", operator: FilterOperator.Contains, value1: authorValue, caseSensitive: false})];
+            let aAuthorFilter = [new Filter({path: "author/name", operator: FilterOperator.Contains, value1: authorValue, caseSensitive: false})];
             let aTitleFilter = [new Filter({path: "title", operator: FilterOperator.Contains, value1: titleValue, caseSensitive: false})];
 
             // 여러 개의 검색조건 선택값에 따라 조건 처리
