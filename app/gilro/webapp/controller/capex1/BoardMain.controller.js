@@ -333,6 +333,11 @@ sap.ui.define([
                 // 행의 갯수를 담는 로직
                 this.getView().getModel("co").setProperty("/count", oBinding.aIndices.length);
             }
+        },
+
+        // 도서 등록 페이지
+        onCreate: function () {
+            this.getOwnerComponent().getRouter().navTo("BoardCreate");
         }
 	});
 });

@@ -269,6 +269,15 @@
             "BoardDetail"
           ],
           "layout": "MidColumnFullScreen"
+        },
+        {
+            "pattern": "capex1/BoardCreate",
+            "name": "BoardCreate",
+            "target": [
+                "BoardMain",
+                "BoardCreate"
+            ],
+            "layout": "OneColumn"
         }
       ],
 
@@ -290,6 +299,12 @@
             "viewPath": "gilro.view.capex1",
             "viewName": "BoardDetail",
             "controlAggregation": "midColumnPages"
+        },
+        "BoardCreate": {
+            "viewId": "BoardCreate",
+            "viewPath": "gilro.view.capex1",
+            "viewName": "BoardCreate",
+            "controlAggregation": "beginColumnPages"
         }
       }
 

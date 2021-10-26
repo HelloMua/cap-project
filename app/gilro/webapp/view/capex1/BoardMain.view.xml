@@ -8,7 +8,8 @@
     xmlns:core="sap.ui.core" 
     height="100%">
 
-    <f:DynamicPage id="page"
+    <f:DynamicPage 
+        id="page"
         headerExpanded="true"
         toggleHeaderOnTitleClick="true">
         <f:title>
@@ -60,6 +61,11 @@
                     <OverflowToolbar>
                         <Title id="tableHeader" text="List ({co>/count})" level="H2" />
                         <ToolbarSpacer />
+                        <Button id="create" icon="sap-icon://write-new" press=".onCreate">
+                            <layoutData>
+                                <OverflowToolbarLayoutData proirity="NeverOverflow" />
+                            </layoutData>
+                        </Button>
                         <Button id="excel" icon="sap-icon://excel-attachment" press=".onDataExport">
                             <layoutData>
                                 <OverflowToolbarLayoutData proirity="NeverOverflow" />

@@ -1,0 +1,77 @@
+<mvc:View 
+    controllerName="gilro.controller.capex1.BoardCreate"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    xmlns:f="sap.f" 
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:layout="sap.ui.layout" 
+    xmlns:core="sap.ui.core" 
+    height="100%"
+    width="100%">
+    <f:DynamicPage
+        id="page"
+        headerExpanded="true"
+        toggleHeaderOnTitleClick="true"
+        showFooter="true">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <HBox>
+                        <OverflowToolbarButton id="pageNavBackButton" type="Transparent" icon="sap-icon://nav-back" press=".onBack" />
+                        <Title text="등록" class="sapUiTinyMarginTop" />
+                    </HBox>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+        </f:header>
+
+        <f:content>
+            <VBox width="auto">
+                <form:SimpleForm layout="ResponsiveGridLayout">
+                    <form:content>
+                        <VBox width="auto">
+                            <VBox width="auto" class="sapUiSmallMargin">
+                                <Label text="ID" labelFor="P_number" required="true" />  
+                                <Input id="id" editable="false" width="80%" />
+                            </VBox>
+                            <VBox width="auto" class="sapUiSmallMargin">
+                                <Label text="author" labelFor="P_author" required="true" />  
+                                <Input id="author" width="80%" showValueHelp="true" valueHelpRequest=".handleTableSelectDialogPress" valueHelpOnly="true" />
+                            </VBox>
+                        </VBox>
+                        <VBox width="auto">
+                            <VBox width="auto" class="sapUiSmallMargin">
+                                <Label text="title" labelFor="P_label" required="true" />
+                                <Input id="title" width="80%" />
+                            </VBox>
+                            <VBox width="auto" class="sapUiSmallMargin">
+                                <Label text="stock" labelFor="P_stock" required="true" />
+                                <Input id="stock" width="80%" />
+                            </VBox>
+                        </VBox>
+                    </form:content>
+                </form:SimpleForm>
+         
+                <form:SimpleForm layout="ResponsiveGridLayout">
+                    <layout:VerticalLayout id="editor" class="sapUiContentPadding" width="auto"></layout:VerticalLayout>
+                </form:SimpleForm>
+            </VBox>
+        </f:content>
+
+        <f:footer>
+            <OverflowToolbar>
+                <Button id="messagePopoverBtn"
+					icon="{ path: '/', formatter: '.buttonIconFormatter' }"
+					type="{ path: '/', formatter: '.buttonTypeFormatter' }"
+					text="{ path: '/', formatter: '.highestSeverityMessages' }"
+					press=".handleMessagePopoverPress"
+					ariaHasPopup="Dialog"/>
+                <ToolbarSpacer/>
+                <Button text="Save" type="Emphasized" press=".onBarSave"/>
+                <Button text="Cancel" press=".onBarCancel"/>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>
