@@ -1,12 +1,11 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/richtexteditor/RichTextEditor",
     "sap/ui/model/json/JSONModel"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, RichTextEditor, JSONModel) {
+	function (Controller, JSONModel) {
         "use strict";
         let _this;
         let _param;
@@ -24,9 +23,6 @@ sap.ui.define([
                 // 풀스크린 및 에딧 모드 변환값
                 const oViewModel = new JSONModel({full : true});
                 this.getView().setModel(oViewModel, "orDetailView");
-
-                // Rich Text Editor을 VerticalLayout에 추가하기 
-                this.getView().byId("editor").addContent(this.oEditor.oRichTextEditor);
 
                 // Books Entity의 데이터를 가져와서 JSON Model을 생성하고 담는다
                 // let BooksPath = "/catalog/Books"
@@ -104,27 +100,9 @@ sap.ui.define([
                 // main.getView().byId("page").setHeaderExpanded(true);
             },
 
-            // Rich Text Editor 
-            oEditor: {
-                oRichTextEditor: new RichTextEditor("myRTE", {
-                    editorType: sap.ui.richtexteditor.EditorType.TinyMCE4,
-                    width: "100%",
-                    height: "600px",
-                    customToolbar: true,
-                    showGroupFont: true,
-                    showGroupLink: true,
-                    showGroupInsert: true,
-                    value: "{detail>/ploat}",
-                    editable: false,
-                    ready: function () {
-                        this.addButtonGroup("styleselect").addButtonGroup("table");
-                    }
-                })
-            },
-
             selectList: async function () {
                 let list = await this.select("/catalog/Books?$expand=author");
-                console.log(list);
+                // console.log(list);
 
                 let aSelectedList = list.value;
                 let data;

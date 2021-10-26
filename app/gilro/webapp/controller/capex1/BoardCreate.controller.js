@@ -1,6 +1,5 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/richtexteditor/RichTextEditor",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "sap/ui/model/Filter",
@@ -13,7 +12,7 @@ sap.ui.define([
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, RichTextEditor, JSONModel, Fragment, Filter, FilterOperator, MessagePopover, MessageItem, MessageToast, MessageBox) {
+	function (Controller, JSONModel, Fragment, Filter, FilterOperator, MessagePopover, MessageItem, MessageToast, MessageBox) {
         "use strict";
         var oMessagePopover;
         var authorInput,
@@ -23,8 +22,8 @@ sap.ui.define([
 
 		return Controller.extend("gilro.controller.capex1.BoardCreate", {
 			onInit: function () {
-                // Rich Text Editor을 VerticalLayout에 추가하기 
-                this.getView().byId("editor").addContent(this.oEditor.oRichTextEditor);
+                // Books 데이터 가져오기
+                this._getBooksSelect();
 
                 // MessageTemplage 만들기
                 var oMessageTemplate = new MessageItem({
@@ -37,7 +36,7 @@ sap.ui.define([
                     link: ''
                 });
 
-                // var oMessageModel = new JSONModel(
+                // var oMessageModel = new JSONModel([
                 //     {
                 //         type: null,
                 //         title: null
@@ -50,26 +49,24 @@ sap.ui.define([
                 //         type: null,
                 //         title: null
                 //     }
-                // )
+                // ])
                 // this.getView().setModel(oMessageModel, "messagePopover");
 
                 // // var authorState = authorInput.byId("author").getValueState();
                 // var authorStateText = authorInput.byId("author").getValueStateText();
-                // var oModelData = this.getView().getModel("messagePopover").getProperty("/");
-                // // oModelData[0].type[authorState];
-                // oModelData[0].title[authorStateText];
+                // var oData = this.getView().getModel("messagePopover").getProperty("/");
+                // oData[0].type = oData[0].type[authorState];
+                // oData[0].title = oData[0].title[authorStateText];
 
                 // // var titleState = titleInput.byId("title").getValueState();
                 // var titleStateText = titleInput.byId("title").getValueStateText();
-                // var oModelData = this.getView().getModel("messagePopover").getProperty("/");
-                // // oModelData[1].type[titleState];
-                // oModelData[1].title[titleStateText];
+                // oData[1].type[titleState];
+                // oData[1].title[titleStateText];
 
                 // // var stockState = stockInput.byId("stock").getValueState();
                 // var stockStateText = stockInput.byId("stock").getValueStateText();
-                // var oModelData = this.getView().getModel("messagePopover").getProperty("/");
-                // // oModelData[2].type[stockState];
-                // oModelData[2].title[stockStateText];
+                // oData[2].type[stockState];
+                // oData[2].title[stockStateText];
                 
 
                 var aMockMessages = [{
@@ -121,27 +118,23 @@ sap.ui.define([
                 this.byId("messagePopoverBtn").addDependent(oMessagePopover);
             },
 
+            _getBooksSelect: function () {
+                let BooksPath = "/catalog/Books?$expand=author"
+
+                this._getData(BooksPath).then((oData) => {
+                    var oBooksModel = new JSONModel(oData.value)
+                    // console.log(oBooksModel);
+                    this.getView().setModel(oBooksModel, "BooksSelect");
+
+                    var oBooks = this.getView().getModel("BooksSelect").getProperty("/");
+                    var bookID = Number(oBooks[oBooks.length-1]['ID'])+1;
+                    this.getView().byId("id").setValue(bookID);
+                })
+            },
+
             // 뒤로가기 (메인페이지로 이동)
             onBack: function () {
                 this.getOwnerComponent().getRouter().navTo("BoardMain");
-            },
-
-            // Rich Text Editor 
-            oEditor: {
-                oRichTextEditor: new RichTextEditor("myRTE2", {
-                    editorType: sap.ui.richtexteditor.EditorType.TinyMCE4,
-                    width: "100%",
-                    height: "600px",
-                    customToolbar: true,
-                    showGroupFont: true,
-                    showGroupLink: true,
-                    showGroupInsert: true,
-                    value: "",
-                    editable: true,
-                    ready: function () {
-                        this.addButtonGroup("styleselect").addButtonGroup("table");
-                    }
-                })
             },
 
             // InputBox안에 ValueHelp 버튼 누르면 다이얼로그 창 생성
@@ -196,6 +189,8 @@ sap.ui.define([
                     var oBinding = oTable.getBinding("items");
                     oBinding.filter(aFilters);
                     // console.log(oBinding);
+
+                    
                 }
             },
 
@@ -207,7 +202,9 @@ sap.ui.define([
                     var oAuthorsModel = new JSONModel(oData.value)
                     // console.log(oAuthorsModel);
                     this.getView().setModel(oAuthorsModel, "AuthorsSelect");
-                })
+                    
+                })              
+
 
             },
 
@@ -297,11 +294,11 @@ sap.ui.define([
 
             },
 
-            onBarSave: function () {
+            onSave: function () {
                 authorInput = this.getView().byId("author");
                 titleInput = this.getView().byId("title");
                 stockInput = this.getView().byId("stock");
-                // editorInput = this.getView().byId("editor");
+                editorInput = this.getView().byId("editor2");
 
                 if (!authorInput.getValue()) {
                     authorInput.setValueState("Error");
@@ -334,10 +331,19 @@ sap.ui.define([
 
                 this.byId("messagePopoverBtn").setVisible(true);
 
-                // this.onCreateId().then()
+                // console.log(authorInput.mProperties.valueState);
+
+                // this.onCreateId().then((result) => {
+                //     let oData = this.getView().oData;
+                //     oData.boardId
+
+                //     const Insert = "/catalog/Board";
+                    
+
+                // })
             },
 
-            onBarCancel: function () {
+            onCancel: function () {
                 var that = this;
 
                 MessageBox.confirm("취소하시겠습니까?", {
@@ -347,16 +353,25 @@ sap.ui.define([
                         if (sAction === MessageBox.Action.OK) {
                             that.getOwnerComponent().getRouter().navTo("BoardMain");
 
-                            // authorInput.setValueState("None");
-                            // authorInput.setValueStateText("");
-                            // authorInput.setValue("");
-                            // titleInput.setValueState("None");
-                            // titleInput.setValueStateText("");
-                            // titleInput.setValue("");
-                            // stockInput.setValueState("None");
-                            // stockInput.setValueStateText("");
-                            // stockInput.setValue("");
-                            // editorInput.setValue("");
+                            if (authorInput !== undefined) {
+                                authorInput.setValueState("None");
+                                authorInput.setValue("");
+                            }
+
+                            if (titleInput !== undefined) {
+                                titleInput.setValueState("None");
+                                titleInput.setValue("");
+                            }
+
+                            if (stockInput !== undefined) {
+                                stockInput.setValueState("None");
+                                stockInput.setValue("");
+                            }
+
+                            if (editorInput !== undefined) {
+                                editorInput.setValue("");
+                            }
+                            
                         }
                     }
                 })

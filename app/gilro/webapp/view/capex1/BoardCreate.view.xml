@@ -6,6 +6,7 @@
     xmlns:form="sap.ui.layout.form" 
     xmlns:layout="sap.ui.layout" 
     xmlns:core="sap.ui.core" 
+    xmlns:rte="sap.ui.richtexteditor" 
     height="100%"
     width="100%">
     <f:DynamicPage
@@ -55,7 +56,13 @@
                 </form:SimpleForm>
          
                 <form:SimpleForm layout="ResponsiveGridLayout">
-                    <layout:VerticalLayout id="editor" class="sapUiContentPadding" width="auto"></layout:VerticalLayout>
+                    <rte:RichTextEditor 
+                        id="editor2" value="" width="90%" height="40rem" class="sapUiSmallMargin"
+                        customToolbar="true" editable="true" editorType="TinyMCE5"
+                        beforeEditorInit="onBeforeInit" ready="onReady" useLegacyTheme="true" showGroupClipboard="true"
+                        showGroupTextAlign="true" showGroupStructure="true" showGroupInsert="true" 
+                        showGroupLink="true" showGroupFont="true">
+                    </rte:RichTextEditor>
                 </form:SimpleForm>
             </VBox>
         </f:content>
@@ -70,8 +77,8 @@
 					ariaHasPopup="Dialog"
                     visible="false" />
                 <ToolbarSpacer/>
-                <Button text="Save" type="Emphasized" press=".onBarSave"/>
-                <Button text="Cancel" press=".onBarCancel"/>
+                <Button text="Save" type="Emphasized" press=".onSave"/>
+                <Button text="Cancel" press=".onCancel"/>
             </OverflowToolbar>
         </f:footer>
     </f:DynamicPage>
