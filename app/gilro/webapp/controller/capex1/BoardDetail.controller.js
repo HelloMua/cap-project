@@ -143,6 +143,28 @@ sap.ui.define([
                     type: "get",
                     url: url
                 })
+            },
+
+            onUpdate: function () {
+                this.byId("save").setVisible(true);
+                this.byId("cancel").setVisible(true);
+                this.byId("update").setVisible(false);
+                this.byId("delete").setVisible(false);
+            },
+
+            onDelete: function () {
+
+            },
+
+            onSave: function () {
+
+            },
+
+            onCancel: function () {
+                this.byId("save").setVisible(false);
+                this.byId("cancel").setVisible(false);
+                this.byId("update").setVisible(true);
+                this.byId("delete").setVisible(true);
             }
 		});
 	});

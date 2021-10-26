@@ -7,14 +7,19 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "sap/m/MessagePopover",
     "sap/m/MessageItem",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+    "sap/m/MessageBox"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, RichTextEditor, JSONModel, Fragment, Filter, FilterOperator, MessagePopover, MessageItem, MessageToast) {
+	function (Controller, RichTextEditor, JSONModel, Fragment, Filter, FilterOperator, MessagePopover, MessageItem, MessageToast, MessageBox) {
         "use strict";
         var oMessagePopover;
+        var authorInput,
+            titleInput,
+            stockInput,
+            editorInput;
 
 		return Controller.extend("gilro.controller.capex1.BoardCreate", {
 			onInit: function () {
@@ -32,11 +37,46 @@ sap.ui.define([
                     link: ''
                 });
 
+                // var oMessageModel = new JSONModel(
+                //     {
+                //         type: null,
+                //         title: null
+                //     },
+                //     {
+                //         type: null,
+                //         title: null
+                //     },
+                //     {
+                //         type: null,
+                //         title: null
+                //     }
+                // )
+                // this.getView().setModel(oMessageModel, "messagePopover");
+
+                // // var authorState = authorInput.byId("author").getValueState();
+                // var authorStateText = authorInput.byId("author").getValueStateText();
+                // var oModelData = this.getView().getModel("messagePopover").getProperty("/");
+                // // oModelData[0].type[authorState];
+                // oModelData[0].title[authorStateText];
+
+                // // var titleState = titleInput.byId("title").getValueState();
+                // var titleStateText = titleInput.byId("title").getValueStateText();
+                // var oModelData = this.getView().getModel("messagePopover").getProperty("/");
+                // // oModelData[1].type[titleState];
+                // oModelData[1].title[titleStateText];
+
+                // // var stockState = stockInput.byId("stock").getValueState();
+                // var stockStateText = stockInput.byId("stock").getValueStateText();
+                // var oModelData = this.getView().getModel("messagePopover").getProperty("/");
+                // // oModelData[2].type[stockState];
+                // oModelData[2].title[stockStateText];
+                
+
                 var aMockMessages = [{
                     type: 'Error',
                     title: 'Error message',
                     active: true,
-                    description: 'First Success message description',
+                    description: '',
                     subtitle: 'Example of subtitle',
                     counter: 1
                 }, {
@@ -65,12 +105,12 @@ sap.ui.define([
 
                 var oModel = new JSONModel();
                 oModel.setData(aMockMessages);
-                this.getView().setModel(oModel);
+                this.getView().setModel(oModel, "messagePopover");
 
                 // Message Popover 만들기
                 oMessagePopover = new MessagePopover({
                     items: {
-                        path: '/',
+                        path: 'messagePopover>/',
                         template: oMessageTemplate
                     },
                     activeTitlePress: function () {
@@ -209,50 +249,117 @@ sap.ui.define([
                 oMessagePopover.toggle(oEvent.getSource());
             },
 
+            // Set the button icon according to the message with the highest severity
             buttonIconFormatter: function () {
+                // var sIcon;
+                // var aMessages= this.getView().getModel().oData;
 
+                // aMessages.forEach(function (sMessage) {
+                //     switch (sMessage.type) {
+                //         case "Error":
+                //             sIcon = "sap-icon://error";
+                //             break;
+                //         case "Warning":
+                //             sIcon = "sap-icon://alert";
+                //             break;
+                //         case "Success":
+                //             sIcon = "sap-icon://sys-enter-2";
+                //             break;
+                //     }
+                // });
+                // return sIcon;
             },
 
+            // Display the button type according to the message with the highest severity
+		    // The priority of the message types are as follows: Error > Warning > Success > Info
             buttonTypeFormatter: function () {
+                var sHighestSeverityIcon;
+                var aMessages = this.getView().getModel("messagePopover").oData;
 
+                aMessages.forEach(function (sMessage) {
+                    switch (sMessage.type) {
+                        case "Error":
+                            sHighestSeverityIcon = "Negative";
+                            break;
+                        case "Warning":
+                            sHighestSeverityIcon = "Critical";
+                            break;
+                        case "Success":
+                            sHighestSeverityIcon = "Success";
+                            break;
+                    }
+                });
+                return sHighestSeverityIcon;
             },
 
+            // Display the number of messages with the highest severity
             highestSeverityMessages: function () {
 
             },
 
             onBarSave: function () {
-                var authorInput = this.getView().byId("author");
-                var titleInput = this.getView().byId("title");
-                var stockInput = this.getView().byId("stock");
-                var editorInput = this.getView().byId("editor");
+                authorInput = this.getView().byId("author");
+                titleInput = this.getView().byId("title");
+                stockInput = this.getView().byId("stock");
+                // editorInput = this.getView().byId("editor");
 
                 if (!authorInput.getValue()) {
                     authorInput.setValueState("Error");
                     authorInput.setValueStateText("저자를 제대로 입력해주세요.");
                     authorInput.focus();
+                } else {
+                    authorInput.setValueState("None");
                 }
 
                 if (!titleInput.getValue()) {
                     titleInput.setValueState("Error");
                     titleInput.setValueStateText("제목을 제대로 입력해주세요.");
                     titleInput.focus();
+                } else {
+                    titleInput.setValueState("None");
                 }
 
                 if (!stockInput.getValue()) {
                     stockInput.setValueState("Error");
                     stockInput.setValueStateText("재고를 제대로 입력해주세요.");
                     stockInput.focus();
+                } else {
+                    stockInput.setValueState("None");
                 }
 
-                if (!editorInput.getValue()) {
-                    editorInput.setValueState("Error");
-                    editorInput.setValueStateText("줄거리를 제대로 입력해주세요.");
-                }
+                // if (!editorInput.getValue()) {
+                //     editorInput.setValueState("Error");
+                //     editorInput.setValueStateText("줄거리를 제대로 입력해주세요.");
+                // }
+
+                this.byId("messagePopoverBtn").setVisible(true);
+
+                // this.onCreateId().then()
             },
 
             onBarCancel: function () {
-                this.getOwnerComponent().getRouter().navTo("BoardMain");
+                var that = this;
+
+                MessageBox.confirm("취소하시겠습니까?", {
+                    actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+                    emphasizedAction: MessageBox.Action.OK,
+                    onClose: function (sAction) {
+                        if (sAction === MessageBox.Action.OK) {
+                            that.getOwnerComponent().getRouter().navTo("BoardMain");
+
+                            // authorInput.setValueState("None");
+                            // authorInput.setValueStateText("");
+                            // authorInput.setValue("");
+                            // titleInput.setValueState("None");
+                            // titleInput.setValueStateText("");
+                            // titleInput.setValue("");
+                            // stockInput.setValueState("None");
+                            // stockInput.setValueStateText("");
+                            // stockInput.setValue("");
+                            // editorInput.setValue("");
+                        }
+                    }
+                })
             }
 
 

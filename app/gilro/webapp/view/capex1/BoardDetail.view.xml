@@ -6,7 +6,7 @@
     xmlns:layout="sap.ui.layout"
     xmlns:form="sap.ui.layout.form"
     displayBlock="true">
-    <ObjectPageLayout>
+    <ObjectPageLayout showFooter="true">
         <headerTitle>
             <ObjectPageDynamicHeaderTitle>
                 <heading>
@@ -69,5 +69,15 @@
 				</subSections>
             </ObjectPageSection>
         </sections>
+
+        <footer>
+            <m:OverflowToolbar>
+                <m:ToolbarSpacer/>
+                <m:Button id="update" text="수정" type="Emphasized" press=".onUpdate"/>
+                <m:Button id="delete" text="삭제" press=".onDelete"/>
+                <m:Button id="save" text="저장" type="Emphasized" press=".onSave" visible="false" />
+                <m:Button id="cancel" text="취소" press=".onCancel" visible="false" />
+            </m:OverflowToolbar>
+        </footer>
     </ObjectPageLayout>
 </mvc:View>

@@ -63,11 +63,12 @@
         <f:footer>
             <OverflowToolbar>
                 <Button id="messagePopoverBtn"
-					icon="{ path: '/', formatter: '.buttonIconFormatter' }"
-					type="{ path: '/', formatter: '.buttonTypeFormatter' }"
-					text="{ path: '/', formatter: '.highestSeverityMessages' }"
+					icon="{ path: 'messagePopover>/', formatter: '.buttonIconFormatter' }"
+					type="{ path: 'messagePopover>/', formatter: '.buttonTypeFormatter' }"
+					text="{ path: 'messagePopover>/', formatter: '.highestSeverityMessages' }"
 					press=".handleMessagePopoverPress"
-					ariaHasPopup="Dialog"/>
+					ariaHasPopup="Dialog"
+                    visible="false" />
                 <ToolbarSpacer/>
                 <Button text="Save" type="Emphasized" press=".onBarSave"/>
                 <Button text="Cancel" press=".onBarCancel"/>
