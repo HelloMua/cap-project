@@ -1,15 +1,22 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/Fragment",
+    "sap/m/MessageBox"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, JSONModel) {
+	function (Controller, JSONModel, Fragment, MessageBox) {
         "use strict";
-        let _this;
-        let _param;
-        let _data;
+        let _this,
+            _param,
+            _data;
+
+        let titleInput,
+            stockInput,
+            idInput,
+            editInput;
 
 		return Controller.extend("gilro.controller.capex1.BoardDetail", {
 			onInit: function () {
@@ -24,14 +31,11 @@ sap.ui.define([
                 const oViewModel = new JSONModel({full : true});
                 this.getView().setModel(oViewModel, "orDetailView");
 
-                // Books Entity의 데이터를 가져와서 JSON Model을 생성하고 담는다
-                // let BooksPath = "/catalog/Books"
-
-                // this._getData(BooksPath).then((oData) => {
-                //     var oBooksModel = new JSONModel(oData.value)
-                //     // console.log(oBooksModel);
-                //     this.getView().setModel(oBooksModel, "BooksSelect");
-                // }) 
+                // 조회/수정 모드 변환 모델 생성
+                var oEditModel = new JSONModel({
+                    editMode: true
+                })
+                this.getView().setModel(oEditModel, "editMode");
 
             },
 
@@ -124,25 +128,191 @@ sap.ui.define([
             },
 
             onUpdate: function () {
+                // footer부분 저장/취소 모드로 변경
                 this.byId("save").setVisible(true);
                 this.byId("cancel").setVisible(true);
                 this.byId("update").setVisible(false);
                 this.byId("delete").setVisible(false);
+
+                // text필드를 input필드로 변경
+                var editMode = this.getView().getModel("editMode");
+                if (editMode.getProperty("/editMode")) {
+                    editMode.setProperty("/editMode", false);
+                    this.byId("editor").setEditable(true);
+                }
+
             },
 
             onDelete: function () {
-
+                var that = this;
+                MessageBox.confirm("정말로 삭제 하시겠습니까?", {
+                    actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+                    emphasizedAction: MessageBox.Action.OK,
+                    onClose: function (sAction) {
+                        if (sAction === MessageBox.Action.OK) {
+                            that.getOwnerComponent().getRouter().navTo("BoardMain");
+                        }
+                    }
+                })
             },
 
             onSave: function () {
+                // 유효성 검사
+                titleInput = this.getView().byId("titleUpdate");
+                stockInput = this.getView().byId("stockUpdate");
+                idInput = this.getView().byId("idUpdate");
+                editInput = this.getView().byId("editor")
 
+                if (!titleInput.getValue()) {
+                    titleInput.setValueState("Error");
+                    titleInput.setValueStateText("제목를 제대로 입력해주세요.");
+                    titleInput.focus();
+                } else {
+                    titleInput.setValueState("None");
+                }
+
+                if (!stockInput.getValue()) {
+                    stockInput.setValueState("Error");
+                    stockInput.setValueStateText("재고를 제대로 입력해주세요.");
+                    stockInput.focus();
+                } else {
+                    stockInput.setValueState("None");
+                }
+
+                if (!idInput.getValue()) {
+                    idInput.setValueState("Error");
+                    idInput.setValueStateText("저자를 제대로 입력해주세요.");
+                    idInput.focus();
+                } else {
+                    idInput.setValueState("None");
+                }
+
+                // if (!editInput.getValue()) {
+                //     editInput.setValueState("Error");
+                //     editInput.setValueStateText("저자를 제대로 입력해주세요.");
+                //     editInput.focus();
+                // } else {
+                //     editInput.setValueState("None");
+                // }
             },
 
             onCancel: function () {
+                // footer부분 수정/삭제 모드로 변경
                 this.byId("save").setVisible(false);
                 this.byId("cancel").setVisible(false);
                 this.byId("update").setVisible(true);
                 this.byId("delete").setVisible(true);
-            }
+
+                // Input필드를 text필드로 변경
+                var editMode = this.getView().getModel("editMode");
+                if (!editMode.getProperty("/editMode")) {
+                    editMode.setProperty("/editMode", true);
+                    this.byId("editor").setEditable(false);
+                }
+            },
+
+            handleTableSelectDialogPress: function () {
+                var oAuthorModel = new JSONModel()
+                this.getView().setModel(oAuthorModel, "AuthorsSelect");
+
+                this.onAuthorDialogOpen("AuthorsSelect");
+            },
+
+            onAuthorDialogOpen: function () {
+                var oView = this.getView();
+
+                if(!this.AuthorsDialog) {
+                    this.AuthorsDialog = Fragment.load({
+                        id: oView.getId(),
+                        name: "gilro.view.fragment.AuthorsSelect",
+                        controller: this
+                    }).then(function (oDialog) {
+                        oView.addDependent(oDialog);
+                        return oDialog;
+                    });
+                }
+                this.AuthorsDialog.then(function(oDialog) {
+                    oDialog.open();
+
+                    oDialog.attachAfterOpen(function(){
+
+                    });
+                });
+            },
+
+             // Dialog에서 Search Button 눌렀을 때 실행
+            onSearchAuthors: function (oEvent) {
+                let searchField = this.byId("AuthorsSearch").getValue();
+
+                if (searchField === undefined || searchField === "") {
+                    // 서치필드에 빈 값을 입력했을 때 전체 데이터가 나오게 함
+                    this._getAuthorsSelect();
+                } else {
+                    // 서치필드에 입력한 값에 해당하는 데이터만 나오게 함
+                    var aFilters = [];
+                    var sQuery = oEvent.getSource().getValue();
+
+                    if (sQuery && sQuery.length > 0) {
+                        var filter = new Filter("name", FilterOperator.Contains, sQuery);
+                        aFilters.push(filter);
+                    }
+
+                    // update list binding
+                    var oTable = this.byId("AuthorsSelectTable");
+                    var oBinding = oTable.getBinding("items");
+                    oBinding.filter(aFilters);
+                    // console.log(oBinding);
+
+                    
+                }
+            },
+
+            // Authors 데이터 가져오기 
+            _getAuthorsSelect: function () {
+                let AuthorsPath = "/catalog/Authors"
+
+                this._getData(AuthorsPath).then((oData) => {
+                    var oAuthorsModel = new JSONModel(oData.value)
+                    // console.log(oAuthorsModel);
+                    this.getView().setModel(oAuthorsModel, "AuthorsSelect");
+                })              
+
+            },
+
+            // ajax를 사용하여 데이터 가져오기
+            _getData: function (Path) {
+                return new Promise((resolve) => {
+                    $.ajax({
+                        type: "get",
+                        async: false,
+                        url: Path,
+                        success: function (Data) {
+                            resolve(Data)
+                        },
+                        error: function (xhr, textStatus, errorMessage) {
+                            alert(errorMessage)
+                        },
+                    })
+                })
+            },
+
+            // 라디오 버튼 클릭 시 실행
+            onChaneSelect: function (oEvent) {
+                this.oId = oEvent.getParameters().listItem.getAggregation("cells")[0].getProperty("text");
+                this.oText = oEvent.getParameters().listItem.getAggregation("cells")[1].getProperty("text");
+                console.log(this.oText);
+            },
+
+            // Dialog의 선택 버튼 클릭 시, 추출한 값을 Input Box에 넣고 창 닫기
+            onSelectAuthors: function () {
+                this.getView().byId("idUpdate").setValue(this.oId);
+                this.getView().byId("nameUpdate").setValue(this.oText);
+                this.getView().byId("AuthorsFrag").close();
+            },
+
+            // Dialog의 취소 버튼 클릭 시 창 닫기
+            onCloseAuthorsFrag: function () {
+                this.getView().byId("AuthorsFrag").close();
+            },
 		});
 	});

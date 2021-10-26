@@ -22,6 +22,12 @@ sap.ui.define([
 
 		return Controller.extend("gilro.controller.capex1.BoardCreate", {
 			onInit: function () {
+                // Input박스 Id 설정하기
+                authorInput = this.getView().byId("author");
+                titleInput = this.getView().byId("title");
+                stockInput = this.getView().byId("stock");
+                editorInput = this.getView().byId("editor2");
+
                 // Books 데이터 가져오기
                 this._getBooksSelect();
 
@@ -202,9 +208,7 @@ sap.ui.define([
                     var oAuthorsModel = new JSONModel(oData.value)
                     // console.log(oAuthorsModel);
                     this.getView().setModel(oAuthorsModel, "AuthorsSelect");
-                    
                 })              
-
 
             },
 
@@ -295,11 +299,6 @@ sap.ui.define([
             },
 
             onSave: function () {
-                authorInput = this.getView().byId("author");
-                titleInput = this.getView().byId("title");
-                stockInput = this.getView().byId("stock");
-                editorInput = this.getView().byId("editor2");
-
                 if (!authorInput.getValue()) {
                     authorInput.setValueState("Error");
                     authorInput.setValueStateText("저자를 제대로 입력해주세요.");

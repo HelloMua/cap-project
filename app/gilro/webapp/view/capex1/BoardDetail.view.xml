@@ -29,15 +29,16 @@
             <ObjectPageSection id="section1" title="책 정보">
                 <subSections>
 					<ObjectPageSubSection id="section1_SS1" titleUppercase="false">
-                        <form:SimpleForm>
+                        <form:SimpleForm width="80%">
                             <m:VBox>
                                 <m:Label text="title :" />
-                                <m:Text text="{detail>/title}" />
-                                <m:Input visible="{}" />
+                                <m:Text id="titleRead" text="{detail>/title}" visible="{=${editMode>/editMode}}"/>
+                                <m:Input id="titleUpdate" value="{detail>/title}" visible="{=!${editMode>/editMode}}" />
                             </m:VBox>
                             <m:VBox>
                                 <m:Label text="stock :" />
-                                <m:Text text="{detail>/stock}" />
+                                <m:Text id="stockRead" text="{detail>/stock}" visible="{=${editMode>/editMode}}"/>
+                                <m:Input id="stockUpdate" value="{detail>/stock}" visible="{=!${editMode>/editMode}}" />
                             </m:VBox>
                         </form:SimpleForm>
                     </ObjectPageSubSection>
@@ -47,15 +48,19 @@
             <ObjectPageSection id="section2" title="저자 정보">
                 <subSections>
 					<ObjectPageSubSection id="section1_SS2" titleUppercase="false">
-                        <form:SimpleForm>
+                        <form:SimpleForm width="80%">
                             <m:VBox>
                                 <m:Label text="author_ID :" />
-                                <m:Text text="{detail>/author/ID}" />
+                                <m:Text id="idRead" text="{detail>/author/ID}" visible="{=${editMode>/editMode}}"/>
+                                <m:Input id="idUpdate" value="{detail>/author/ID}" visible="{=!${editMode>/editMode}}" 
+                                    valueHelpOnly="true" showValueHelp="true" valueHelpRequest=".handleTableSelectDialogPress"/>
                             </m:VBox>
                             <m:VBox>
                                 <m:Label text="author_name :" />
-                                <m:Text text="{detail>/author/name}" />
+                                <m:Text id="nameRead" text="{detail>/author/name}" visible="{=${editMode>/editMode}}"/>
+                                <m:Input id="nameUpdate" value="{detail>/author/name}" visible="{=!${editMode>/editMode}}" editable="false"/>
                             </m:VBox>
+                            
                         </form:SimpleForm>
                     </ObjectPageSubSection>
 				</subSections>
