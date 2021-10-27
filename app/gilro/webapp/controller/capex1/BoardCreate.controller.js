@@ -19,8 +19,12 @@ sap.ui.define([
             titleInput,
             stockInput,
             editorInput;
+        var bookList = [];
 
 		return Controller.extend("gilro.controller.capex1.BoardCreate", {
+            //책 내용들 밀어주기
+            Books: {},
+
 			onInit: function () {
                 // Input박스 Id 설정하기
                 authorInput = this.getView().byId("author");
@@ -122,6 +126,7 @@ sap.ui.define([
                 });
 
                 this.byId("messagePopoverBtn").addDependent(oMessagePopover);
+
             },
 
             _getBooksSelect: function () {
@@ -231,6 +236,7 @@ sap.ui.define([
 
             // 라디오 버튼 클릭 시 실행
             onChaneSelect: function (oEvent) {
+                this.Books.AuthorId = oEvent.getParameters().listItem.getAggregation("cells")[0].getProperty("text");
                 this.oText = oEvent.getParameters().listItem.getAggregation("cells")[1].getProperty("text");
                 console.log(this.oText);
             },
@@ -298,6 +304,7 @@ sap.ui.define([
 
             },
 
+            // Create 기능 추가
             onSave: function () {
                 if (!authorInput.getValue()) {
                     authorInput.setValueState("Error");
@@ -330,16 +337,74 @@ sap.ui.define([
 
                 this.byId("messagePopoverBtn").setVisible(true);
 
-                // console.log(authorInput.mProperties.valueState);
+                // 데이터값을 받기 위한 전역변수 선언
+                this.Books.Id = this.byId("id").getValue();
+                this.Books.Title = this.byId("title").getValue();
+                this.Books.Author = this.byId("author").getValue();
+                this.Books.Stock = this.byId("stock").getValue();
+                this.Books.Ploat = this.byId("editor2").getProperty("value");
+                this.InsertBooks = this.Books;
 
-                // this.onCreateId().then((result) => {
-                //     let oData = this.getView().oData;
-                //     oData.boardId
 
-                //     const Insert = "/catalog/Board";
-                    
+                // Create
+                // 새롭게 들어가질 데이터들 형식 => 잘 안맞으면 400에러 발생
+                var BooksData = {
+                    "ID": this.Books.Id,
+                    "title" : this.Books.Title,
+                    "author_ID" : this.Books.AuthorId,
+                    "stock" :  this.Books.Stock,
+                    "ploat" : this.Books.Ploat
+                };
+                console.log(BooksData);
 
-                // })
+                // 데이터 넣어주기
+                this._insertData(BooksData);
+
+            },
+
+            // 새로운 데이터 등록해주기
+            _insertData: function (BooksData) {
+                MessageBox.confirm("등록하시겠습니까?", {
+                    icon: MessageBox.Icon.CONFIRM,
+                    title: "도서 등록",
+                    action: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+                    onClose: function(oAction) {
+                        if (oAction === "OK") {
+                            var serverPath = "/catalog/Books";
+
+                            fetch(`${serverPath}`, {
+                                method: "POST",
+                                body: JSON.stringify(BooksData),
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                            })
+                                .then((response) => {
+                                    if (!response.ok) {
+                                        throw new Error(`${response.status} - ${response.statusText}`)
+                                    }
+                                    return response.json();
+                            })
+                                .then(() => {
+                                    if (bookList.length > 0) {
+                                        this.onStartUpload(this.InsertBooks);
+                                    }
+                                    this.getOwnerComponent().getRouter().navTo("BoardMain");
+                            
+                            })
+                                .then((decodedResponse) => {
+                                    console.log("등록이 되었습니다.");
+                                    console.log("decodedResponse", decodedResponse)
+                                    sap.ui.getCore().getMessageManager().removeAllMessages();
+                                    this.getOwnerComponent().getRouter().navTo("BoardMain")
+                                })
+                            .catch((error) => {
+                                console.log(error);
+                            });
+                        }
+                    }.bind(this)
+                })
+
             },
 
             onCancel: function () {

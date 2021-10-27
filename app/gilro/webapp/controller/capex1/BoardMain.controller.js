@@ -17,7 +17,7 @@ sap.ui.define([
 
         // 라이프 사이클
 		onInit: function () {
-            console.clear();
+            // console.clear();
             console.log(" === BoardMain onInit === ");
 
             // Books Entity의 데이터를 가져와서 JSON Model을 생성하고 담는다
@@ -27,6 +27,14 @@ sap.ui.define([
             const oCountModel = new JSONModel({count: 0});
             this.getView().setModel(oCountModel, "co");
 
+            // 페이지 갱신될때 실행되는 함수 호출
+            const myRoute = this.getOwnerComponent().getRouter().getRoute("BoardMain");
+            myRoute.attachPatternMatched(this.onMyRoutePatternMatched, this);
+
+        },
+
+        onMyRoutePatternMatched: async function () {
+            this._getBooksSelect();
         },
 
         onBack: function () {
