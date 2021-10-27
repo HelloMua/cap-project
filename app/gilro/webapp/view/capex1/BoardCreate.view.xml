@@ -18,7 +18,7 @@
             <f:DynamicPageTitle>
                 <f:heading>
                     <HBox>
-                        <OverflowToolbarButton id="pageNavBackButton" type="Transparent" icon="sap-icon://nav-back" press=".onBack" />
+                        <OverflowToolbarButton id="pageNavBackButton" type="Transparent" icon="sap-icon://nav-back" press=".onCancel" />
                         <Title text="등록" class="sapUiTinyMarginTop" />
                     </HBox>
                 </f:heading>
@@ -70,9 +70,9 @@
         <f:footer>
             <OverflowToolbar>
                 <Button id="messagePopoverBtn"
-					icon="{ path: 'messagePopover>/', formatter: '.buttonIconFormatter' }"
-					type="{ path: 'messagePopover>/', formatter: '.buttonTypeFormatter' }"
-					text="{ path: 'messagePopover>/', formatter: '.highestSeverityMessages' }"
+					icon="{ path: 'popover>/', formatter: '.buttonIconFormatter' }"
+					type="{ path: 'popover>/', formatter: '.buttonTypeFormatter' }"
+					text="{ path: 'popover>/', formatter: '.highestSeverityMessages' }"
 					press=".handleMessagePopoverPress"
 					ariaHasPopup="Dialog"
                     visible="false" />

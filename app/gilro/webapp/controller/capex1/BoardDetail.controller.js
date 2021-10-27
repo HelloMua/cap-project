@@ -3,12 +3,14 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "sap/m/MessageBox",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+    "sap/m/MessagePopover",
+    "sap/m/MessageItem"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, JSONModel, Fragment, MessageBox, MessageToast) {
+	function (Controller, JSONModel, Fragment, MessageBox, MessageToast, MessagePopover, MessageItem) {
         "use strict";
         let _this,
             _param,
@@ -18,6 +20,8 @@ sap.ui.define([
             stockInput,
             idInput,
             editInput;
+
+        let oMessagePopover;
 
 		return Controller.extend("gilro.controller.capex1.BoardDetail", {
             //책 내용들 밀어주기
@@ -43,7 +47,15 @@ sap.ui.define([
 
                 // Books 데이터 가져오기
                 this._getBooksSelect();
+
+                // Message Popover 버튼 Id 설정하기
+                this.oButton = this.byId("messagePopoverBtn2");          
                 
+                // 유효성 검사
+                titleInput = this.getView().byId("titleUpdate");
+                stockInput = this.getView().byId("stockUpdate");
+                idInput = this.getView().byId("idUpdate");
+                editInput = this.getView().byId("editor")
 
             },
 
@@ -84,6 +96,12 @@ sap.ui.define([
                 _this = this;
                 _param = oEvent.getParameter("arguments").num;
                 this.param = _param;
+
+                // Message Popover & SetValueState 초기화
+                this.oButton.setVisible(false);
+                titleInput.setValueState("None");
+                stockInput.setValueState("None");
+
 
                 this.selectList();
             },
@@ -192,39 +210,111 @@ sap.ui.define([
             },
 
             onSave: function () {
-                // 유효성 검사
-                titleInput = this.getView().byId("titleUpdate");
-                stockInput = this.getView().byId("stockUpdate");
-                idInput = this.getView().byId("idUpdate");
-                editInput = this.getView().byId("editor")
+                // Popover 클릭 시 나오는 아이콘(타입) 설정
+                var stockType = "Success";
+                var titleType = "Success";
+                var authorType = "Success";
+                var textType = "Success";
+
+                // Popover 클릭 시 Subtitle 지정
+                var stockTitle = "재고 수량 입력 완료";
+                var titleTitle = "제목 입력 완료";
+                var authorTitle = "저자 입력 완료";
+                var textTitle = "줄거리 입력 완료";
+
 
                 if (!titleInput.getValue()) {
+                    // Validation
                     titleInput.setValueState("Error");
                     titleInput.setValueStateText("제목를 제대로 입력해주세요.");
                     titleInput.focus();
+                    // Message Popover
+                    titleType = "Error";
+                    titleTitle = "제목을 입력해주세요";
                 } else {
                     titleInput.setValueState("None");
                 }
 
                 if (!stockInput.getValue()) {
+                    // Validation
                     stockInput.setValueState("Error");
                     stockInput.setValueStateText("재고를 제대로 입력해주세요.");
                     stockInput.focus();
+                    // Message Popover
+                    stockType = "Error";
+                    stockTitle = "재고를 제대로 입력해주세요"
                 } else {
                     stockInput.setValueState("None");
                 }
 
                 if (!idInput.getValue()) {
+                    // Validation
                     idInput.setValueState("Error");
                     idInput.setValueStateText("저자를 제대로 입력해주세요.");
                     idInput.focus();
+                    // Message Popover
+                    authorType = "Error";
+                    authorTitle = "저자를 제대로 입력해주세요.";
                 } else {
                     idInput.setValueState("None");
                 }
 
                 if (!editInput.getValue()) {
+                    // Validation
                     MessageToast.show("줄거리를 제대로 입력해주세요.");
+                    // Message Popover
+                    textType = "Error";
+                    textTitle = "줄거리를 제대로 입력해주세요."
                 }
+
+                // 저장 버튼 클릭 시 메시지팝오버 버튼 띄우기
+                this.oButton.setVisible(true);
+
+                //ㅡㅡㅡㅡㅡMessage Popover 설정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ                
+                // type, title, subtitle 설정
+                var MessageModel = [{
+                    type: titleType,
+                    title : "Title",
+                    subtitle: titleTitle,
+                }, {
+                    type: authorType,
+                    title : "Author",
+                    subtitle: authorTitle,
+                }, {
+                    type: stockType,
+                    title : "Stock",
+                    subtitle: stockTitle,
+                }, {
+                    type: textType,
+                    title : "Ploat",
+                    subtitle: textTitle,
+                }];
+
+                //Message Popover 클릭 시 나오는 항목마다 보여줄 값들
+                var oMessageTemplate = new MessageItem({
+                    type: '{popoverDetail>type}',
+                    title: '{popoverDetail>title}',
+                    subtitle: '{popoverDetail>subtitle}'
+                });
+
+                // 얘도 뭔지 모르겠음
+                oMessagePopover = new MessagePopover({
+                    items: {
+                        path: 'popoverDetail>/',
+                        template: oMessageTemplate
+                    },
+                    activeTitlePress: function () {
+                        MessageToast.show('Active title is pressed');
+                    }
+                });
+
+                //모델 만들기
+                var oModel = new JSONModel();
+                oModel.setData(MessageModel);
+                this.getView().setModel(oModel, "popoverDetail");
+                this.byId("messagePopoverBtn2").addDependent(oMessagePopover);
+                console.log(this.byId("messagePopoverBtn2").addDependent(oMessagePopover))
+                //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
                 // 데이터값을 받기 위한 전역변수 선언
                 this.Books.Title = this.byId("titleUpdate").getValue();
@@ -265,6 +355,8 @@ sap.ui.define([
                 });
 
                 this.onCancel();
+                // this.oButton.setVisible(false);
+
                 
             },
 
@@ -281,6 +373,8 @@ sap.ui.define([
                     editMode.setProperty("/editMode", true);
                     this.byId("editor").setEditable(false);
                 }
+
+                this.oButton.setVisible(false);
             },
 
             handleTableSelectDialogPress: function () {
@@ -386,6 +480,84 @@ sap.ui.define([
             // Dialog의 취소 버튼 클릭 시 창 닫기
             onCloseAuthorsFrag: function () {
                 this.getView().byId("AuthorsFrag").close();
+            },
+
+            handleMessagePopoverPress: function (oEvent) {
+                oMessagePopover.toggle(oEvent.getSource());
+                console.log("-------------------------------d")
+            },
+
+            // Set the button icon according to the message with the highest severity
+            buttonIconFormatter: function () {
+                var sIcon;
+                var aMessages = this.getView().getModel("popoverDetail").oData;
+
+                aMessages.forEach(function (sMessage) {
+                    switch (sMessage.type) {
+                        case "Error":
+                            sIcon = "sap-icon://error";
+                            break;
+                        case "Warning":
+                            sIcon = sIcon !== "sap-icon://error" ? "sap-icon://alert" : sIcon;
+                            break;
+                        case "Success":
+                            sIcon = "sap-icon://error" && sIcon !== "sap-icon://alert" ? "sap-icon://sys-enter-2" : sIcon;
+                            break;
+                        default:
+                            sIcon = !sIcon ? "sap-icon://information" : sIcon;
+                            break;
+                    }
+                });
+
+                return sIcon;
+            },
+
+            // Display the button type according to the message with the highest severity
+		    // The priority of the message types are as follows: Error > Warning > Success > Info
+            buttonTypeFormatter: function () {
+                var sHighestSeverityIcon;
+                var aMessages = this.getView().getModel("popoverDetail").oData;
+
+                aMessages.forEach(function (sMessage) {
+                    switch (sMessage.type) {
+                        case "Error":
+                            sHighestSeverityIcon = "Negative";
+                            break;
+                        case "Success":
+                            sHighestSeverityIcon = sHighestSeverityIcon !== "Negative" && sHighestSeverityIcon !== "Critical" ?  "Success" : sHighestSeverityIcon;
+                            break;
+                        default:
+                            sHighestSeverityIcon = !sHighestSeverityIcon ? "Neutral" : sHighestSeverityIcon;
+                            break;
+                    }
+                });
+
+                return sHighestSeverityIcon;
+            },
+
+            // Display the number of messages with the highest severity
+            highestSeverityMessages: function () {
+                var sHighestSeverityIconType = this.buttonTypeFormatter();
+                var sHighestSeverityMessageType;
+
+                switch (sHighestSeverityIconType) {
+                    case "Negative":
+                        sHighestSeverityMessageType = "Error";
+                        break;
+                    case "Critical":
+                        sHighestSeverityMessageType = "Warning";
+                        break;
+                    case "Success":
+                        sHighestSeverityMessageType = "Success";
+                        break;
+                    default:
+                        sHighestSeverityMessageType = !sHighestSeverityMessageType ? "Information" : sHighestSeverityMessageType;
+                        break;
+                }
+
+                return this.getView().getModel("popoverDetail").oData.reduce(function(iNumberOfMessages, oMessageItem) {
+                    return oMessageItem.type === sHighestSeverityMessageType ? ++iNumberOfMessages : iNumberOfMessages;
+                }, 0);
             },
 		});
 	});

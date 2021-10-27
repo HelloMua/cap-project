@@ -85,6 +85,13 @@
 
         <footer>
             <m:OverflowToolbar>
+                <m:Button id="messagePopoverBtn2"
+					icon="{ path: 'popoverDetail>/', formatter: '.buttonIconFormatter' }"
+					type="{ path: 'popoverDetail>/', formatter: '.buttonTypeFormatter' }"
+					text="{ path: 'popoverDetail>/', formatter: '.highestSeverityMessages' }"
+					press=".handleMessagePopoverPress"
+					ariaHasPopup="Dialog"
+                    visible="false" />
                 <m:ToolbarSpacer/>
                 <m:Button id="update" text="수정" type="Emphasized" press=".onUpdate"/>
                 <m:Button id="delete" text="삭제" press=".onDelete"/>
