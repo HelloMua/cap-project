@@ -330,10 +330,9 @@ sap.ui.define([
                     stockInput.setValueState("None");
                 }
 
-                // if (!editorInput.getValue()) {
-                //     editorInput.setValueState("Error");
-                //     editorInput.setValueStateText("줄거리를 제대로 입력해주세요.");
-                // }
+                if (!editorInput.getValue()) {
+                    MessageToast.show("줄거리를 제대로 입력해주세요.");
+                }
 
                 this.byId("messagePopoverBtn").setVisible(true);
 
@@ -357,8 +356,10 @@ sap.ui.define([
                 };
                 console.log(BooksData);
 
-                // 데이터 넣어주기
-                this._insertData(BooksData);
+                if (BooksData.title !== "" && BooksData.stock !== "" && BooksData.ploat !== "" && BooksData.author_ID !== undefined) {
+                    // 데이터 넣어주기
+                    this._insertData(BooksData);
+                }
 
             },
 

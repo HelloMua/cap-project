@@ -222,13 +222,9 @@ sap.ui.define([
                     idInput.setValueState("None");
                 }
 
-                // if (!editInput.getValue()) {
-                //     editInput.setValueState("Error");
-                //     editInput.setValueStateText("줄거리를 제대로 입력해주세요.");
-                //     editInput.focus();
-                // } else {
-                //     editInput.setValueState("None");
-                // }
+                if (!editInput.getValue()) {
+                    MessageToast.show("줄거리를 제대로 입력해주세요.");
+                }
 
                 // 데이터값을 받기 위한 전역변수 선언
                 this.Books.Title = this.byId("titleUpdate").getValue();
@@ -242,11 +238,12 @@ sap.ui.define([
                     "stock" :  this.Books.Stock,
                     "ploat" : this.Books.Ploat
                 };
+                console.log(updateData);
 
-                this.onBoardUpdate(updateData);
-                console.log(this.Books, "Books")
-                console.log(updateData, "updateData")
-                console.log(this.oId)
+                if (updateData.title !== "" && updateData.stock !== "" && updateData.ploat !== "") {
+                    // 데이터 수정하기
+                    this.onBoardUpdate(updateData);
+                }
               
             },
 
