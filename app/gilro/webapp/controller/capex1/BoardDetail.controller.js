@@ -374,7 +374,7 @@ sap.ui.define([
                     this.byId("editor").setEditable(false);
                 }
 
-                this.oButton.setVisible(false);
+                // this.oButton.setVisible(false);
             },
 
             handleTableSelectDialogPress: function () {
