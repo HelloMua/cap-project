@@ -2,12 +2,13 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/m/MessageToast"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, JSONModel, Fragment, MessageBox) {
+	function (Controller, JSONModel, Fragment, MessageBox, MessageToast) {
         "use strict";
         let _this,
             _param,
@@ -19,6 +20,9 @@ sap.ui.define([
             editInput;
 
 		return Controller.extend("gilro.controller.capex1.BoardDetail", {
+            //책 내용들 밀어주기
+            Books: {},
+
 			onInit: function () {
                 // 페이지 갱신될 때 실행되는 함수 호출
                 let Detail = this.getOwnerComponent().getRouter().getRoute("BoardDetail");
@@ -37,6 +41,22 @@ sap.ui.define([
                 })
                 this.getView().setModel(oEditModel, "editMode");
 
+                // Books 데이터 가져오기
+                this._getBooksSelect();
+                
+
+            },
+
+            _getBooksSelect: function () {
+                console.log("=========");
+                let BooksPath = "/catalog/Books"
+
+                this._getData(BooksPath).then((oData) => {
+                    var oBooksModel = new JSONModel(oData.value)
+                    // console.log(oBooksModel);
+                    this.getView().setModel(oBooksModel, "BooksSelect");
+
+                })
             },
 
             // ajax를 사용하여 데이터 가져오기
@@ -63,6 +83,7 @@ sap.ui.define([
                 _data = this.getView().getModel("orDetailView");
                 _this = this;
                 _param = oEvent.getParameter("arguments").num;
+                this.param = _param;
 
                 this.selectList();
             },
@@ -143,14 +164,28 @@ sap.ui.define([
 
             },
 
+            //게시글 삭제 버튼 클릭시 실행될 함수
             onDelete: function () {
                 var that = this;
+                
                 MessageBox.confirm("정말로 삭제 하시겠습니까?", {
                     actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
                     emphasizedAction: MessageBox.Action.OK,
                     onClose: function (sAction) {
                         if (sAction === MessageBox.Action.OK) {
-                            that.getOwnerComponent().getRouter().navTo("BoardMain");
+                            const bookDelete = "/catalog/Books/"+ that.param;
+
+                            fetch(bookDelete, {
+                                method: "DELETE",
+                                headers: {
+                                    "Content-Type": "application/json;IEEE754Compatible=true",
+                                },
+                            }).then((response) => {
+                                MessageToast.show("게시글 삭제 완료");
+                                that.getOwnerComponent().getRouter().navTo("BoardMain");
+                            }).catch((err) => {
+                                alert(err);
+                            });
                         }
                     }
                 })
@@ -189,11 +224,51 @@ sap.ui.define([
 
                 // if (!editInput.getValue()) {
                 //     editInput.setValueState("Error");
-                //     editInput.setValueStateText("저자를 제대로 입력해주세요.");
+                //     editInput.setValueStateText("줄거리를 제대로 입력해주세요.");
                 //     editInput.focus();
                 // } else {
                 //     editInput.setValueState("None");
                 // }
+
+                // 데이터값을 받기 위한 전역변수 선언
+                this.Books.Title = this.byId("titleUpdate").getValue();
+                this.Books.Stock = this.byId("stockUpdate").getValue();
+                this.Books.Ploat = this.byId("editor").getProperty("value");
+
+                let updateData = {
+                    "ID": this.param,
+                    "title" : this.Books.Title,
+                    "author_ID": this.oId,
+                    "stock" :  this.Books.Stock,
+                    "ploat" : this.Books.Ploat
+                };
+
+                this.onBoardUpdate(updateData);
+                console.log(this.Books, "Books")
+                console.log(updateData, "updateData")
+                console.log(this.oId)
+              
+            },
+
+            // 게시글 수정한 부분 업데이트 함수
+            onBoardUpdate : async function(updateData){
+                const update = "/catalog/Books/"+ this.param;
+                
+                fetch(update, {
+                    method: "PATCH",
+                    body: JSON.stringify(updateData),
+                    headers: {
+                        "Content-Type": "application/json;IEEE754Compatible=true"
+                    },
+                }).then((response) => {
+                    MessageToast.show("게시글 수정 완료");
+                    this.selectList();
+                }).catch((err) => {
+                    alert(err);
+                });
+
+                this.onCancel();
+                
             },
 
             onCancel: function () {
@@ -301,6 +376,7 @@ sap.ui.define([
                 this.oId = oEvent.getParameters().listItem.getAggregation("cells")[0].getProperty("text");
                 this.oText = oEvent.getParameters().listItem.getAggregation("cells")[1].getProperty("text");
                 console.log(this.oText);
+                console.log(this.oId)
             },
 
             // Dialog의 선택 버튼 클릭 시, 추출한 값을 Input Box에 넣고 창 닫기
